@@ -1,0 +1,7 @@
+*.db
+/.classpath
+/.project
+/tmp
+*.class
+/eclipse
+/.settings

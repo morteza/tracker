@@ -1,0 +1,21 @@
+@import url("font-awesome.min.css");
+@import url("bootplus.min.css");
+@import url("bootplus-responsive.min.css");
+
+.padded {
+    padding: 15px
+}
+
+.nopadding {
+    padding: 0
+}
+
+.hpadded {
+    padding-left:15px;
+    padding-right:15px
+}
+
+.vpadded {
+    padding-top:15px;
+    padding-bottom:15px
+}
