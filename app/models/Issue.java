@@ -1,5 +1,5 @@
 /*******************************************************************************
- *        File: Story.java
+ *        File: Issue.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Jul 26, 2013
  *     Project: Fuschia Tracker
@@ -9,12 +9,24 @@
 package models;
 
 import play.*;
+import play.data.validation.Required;
 import play.db.jpa.*;
 
 import javax.persistence.*;
+
 import java.util.*;
 
 @Entity
-public class Story extends Model {
-    
+public class Issue extends Model {
+
+	@Required
+	public IssueType type;
+	
+	@Required
+	public Date createAt;
+	
+	public Date modifiedAt;
+	
+	@ManyToOne
+	public Project project;
 }

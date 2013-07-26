@@ -1,5 +1,5 @@
 /*******************************************************************************
- *        File: StoryType.java
+ *        File: IssueType.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Jul 26, 2013
  *     Project: Fuschia Tracker
@@ -15,8 +15,8 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-public class StoryType extends Model {
+public class IssueType extends Model {
 
-	public String title;
+	public String name;
 
 }

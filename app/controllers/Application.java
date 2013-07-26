@@ -18,8 +18,8 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-    	List<Story> stories;
-    	stories = Story.findAll();
+    	List<Issue> stories;
+    	stories = Issue.findAll();
         render(stories);
     }
 

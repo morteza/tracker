@@ -1,5 +1,5 @@
 /*******************************************************************************
- *        File: User.java
+ *        File: Repository.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Jul 26, 2013
  *     Project: Fuschia Tracker
@@ -9,10 +9,7 @@
 package models;
 
 import play.*;
-import play.data.validation.Email;
-import play.data.validation.Password;
 import play.data.validation.Required;
-import play.data.validation.Unique;
 import play.db.jpa.*;
 
 import javax.persistence.*;
@@ -20,18 +17,11 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-public class User extends Model {
+public class Repository extends Model {
 
 	@Required
-	public String fullname;
-	
-	@Email
-	@Unique
+	public String title;
+
 	@Required
-	public String email;
-	
-	@Required
-	@Password
-	public String password;
-    
+	public String path;
 }

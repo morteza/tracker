@@ -1,5 +1,5 @@
 /*******************************************************************************
- *        File: User.java
+ *        File: Project.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Jul 26, 2013
  *     Project: Fuschia Tracker
@@ -9,8 +9,6 @@
 package models;
 
 import play.*;
-import play.data.validation.Email;
-import play.data.validation.Password;
 import play.data.validation.Required;
 import play.data.validation.Unique;
 import play.db.jpa.*;
@@ -20,18 +18,26 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-public class User extends Model {
+public class Project extends Model {
 
 	@Required
-	public String fullname;
+	public String title;
 	
-	@Email
+	@Id
 	@Unique
 	@Required
-	public String email;
+	public String id;
 	
-	@Required
-	@Password
-	public String password;
-    
+	public String description;
+	
+    @OneToMany(mappedBy="project", cascade=CascadeType.ALL)
+	public List<Issue> issues;
+	
+	public Repository repository;
+	
+    public Project addIssue(Issue newIssue) {
+        this.issues.add(newIssue);
+        this.save();
+        return this;
+    }
 }
