@@ -38,7 +38,11 @@ public class Project extends Model {
 		this.title = title;
 		this.identifier = identifier;
 		this.description = description;
-		this.repository = repositoryAddress;
+		this.repository = repositoryAddress.trim();
+		
+		if (this.repository.endsWith("/")) {
+			this.repository = this.repository.substring(0, repositoryAddress.length()-1);
+		}
 	}
 	
     public Project addIssue(Issue newIssue) {
