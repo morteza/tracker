@@ -1,0 +1,20 @@
+#{extends 'layout.html' /}
+#{set title}${project?.title} | Overview#{/set}
+
+<div class="row-fluid">
+	
+	<div class="card span12">
+		<div class="card-heading image">
+			<img />
+			<div class="card-heading-header">
+				<h3>${project?.title}</h3>
+			</div>
+		</div>
+	   
+		<div class="card-body">
+			${project?.description}
+		</div>
+	
+	</div>
+
+</div>

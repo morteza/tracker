@@ -23,10 +23,9 @@ public class Project extends Model {
 	@Required
 	public String title;
 	
-	@Id
 	@Unique
 	@Required
-	public String id;
+	public String uniqueName;
 	
 	public String description;
 	

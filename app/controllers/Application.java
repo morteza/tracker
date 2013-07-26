@@ -22,5 +22,14 @@ public class Application extends Controller {
     	stories = Issue.findAll();
         render(stories);
     }
-
+    
+    public static void overview(Long projectId) {
+    	Project project = Project.findById(projectId);
+    	if (project==null) {
+    		flash.error("Invalid project.");
+    		flash.keep();
+    		index();
+    	}
+    	render(project);
+    }
 }

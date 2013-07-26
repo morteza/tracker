@@ -27,6 +27,7 @@ public class Issue extends Model {
 	
 	public Date modifiedAt;
 	
+	@Required
 	@ManyToOne
 	public Project project;
 }
