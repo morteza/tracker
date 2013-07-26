@@ -26,7 +26,7 @@ public class CreateProjectRepositories extends Job<Boolean> {
 		List<Project> projects = Project.findAll();
 		
 		for (Project project : projects) {
-			String repoName = project.uniqueName;
+			String repoName = project.identifier;
 			File repoDir = new File("repositories/" + repoName);
 			if (repoDir.exists()) {
 				//TODO remove it to create it again

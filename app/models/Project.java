@@ -25,14 +25,21 @@ public class Project extends Model {
 	
 	@Unique
 	@Required
-	public String uniqueName;
+	public String identifier;
 	
 	public String description;
 	
     @OneToMany(mappedBy="project", cascade=CascadeType.ALL)
 	public List<Issue> issues;
 	
-	public Repository repository;
+	public String repository;
+	
+	public Project(String title, String identifier, String description, String repositoryAddress) {
+		this.title = title;
+		this.identifier = identifier;
+		this.description = description;
+		this.repository = repositoryAddress;
+	}
 	
     public Project addIssue(Issue newIssue) {
         this.issues.add(newIssue);

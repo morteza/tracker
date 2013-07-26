@@ -5,9 +5,13 @@
 # Home page
 GET     /                                       Application.index
 
-# Project Overview
-GET		/overview/{projectId}					Application.overview
+# Projects links
+POST	/new									Application.newProject
 
+GET		/new									Application.newProjectPage
+
+# Project Overview
+GET		/{projectId}/overview/?					Application.overview
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

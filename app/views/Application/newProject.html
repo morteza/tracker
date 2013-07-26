@@ -1,0 +1,47 @@
+#{extends 'layout.html' /}
+#{set 'title'}New Project#{/set}
+
+<div class="row-fluid">
+	<div class="card span8 offset2">
+		<form class="form-horizontal" method="POST" action="@{Application.newProject}">
+		
+		  <div class="control-group">
+		    <label class="control-label" for="inputTitle">Title</label>
+		    <div class="controls">
+		      <input type="text" name="title" id="inputTitle" class="span10" placeholder="Title">
+		    </div>
+		  </div>
+
+		  <div class="control-group">
+		    <label class="control-label" for="inputIdentifier">Identifier</label>
+		    <div class="controls">
+		      <input type="text" name="identifier" id="inputIdentifier" class="span10" placeholder="Unique Identifier">
+		    </div>
+		  </div>
+
+		  <div class="control-group">
+		    <label class="control-label" for="inputDescription">Description</label>
+		    <div class="controls">
+		      <textarea name="description" id="inputDescription" rows="5" class="span10" placeholder="Description"></textarea>
+		    </div>
+		  </div>
+		  
+		  
+		  <div class="control-group">
+		    <label class="control-label" for="inputRepository">Repository Address</label>
+		    <div class="controls">
+		      <input type="text" name="repository" id="inputRepository" class="span10" placeholder="e.g. https://github.com/morteza/tracker.git">
+		    </div>
+		  </div>
+		  
+		  <div class="control-group">
+		    <div class="controls">
+		      <button type="submit" class="btn btn-primary">Create</button>
+		    </div>
+		  </div>
+		  
+		</form>
+	</div>
+
+</div>
+

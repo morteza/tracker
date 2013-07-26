@@ -1,3 +1,15 @@
-# You can specialize this file for each language.
-# For example, for French create a messages.fr file
-#
+# Language file for default English (en-US)
+
+# /*******************************************************************************
+#  *        File: messages (language file for en-US)
+#  *      Author: Morteza Ansarinia <ansarinia@me.com>
+#  *  Created on: Jul 26, 2013
+#  *     Project: Fuschia Tracker
+#  *   Copyright: See the file "LICENSE" for the full license governing this code.
+# *******************************************************************************/
+
+
+tracker.applicationName=Tracker
+
+tracker.navbar.newProject=New Project
+tracker.navbar.projects=Projects

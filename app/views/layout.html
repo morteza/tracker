@@ -32,33 +32,55 @@
 				Menu
 			</button>
 		 
-			<a class="brand" href="http://tracker.fuschia.us" title="Powered by Fuschia Tracker">
+			<a class="brand" href="http://github.io/morteza/tracker" title="Powered by Tracker">
 				<img src="@{'/public/img/favicon.png'}" style="height:20px;width:20px"/>
 			</a>
-			<a class="brand" href="#">Project#1</a>
-		
+			
+			#{if project}
+				<a class="brand" href="#">${project?.title}</a>
+			#{/if}
+			
 			<!-- hidden at 940px or less -->
 			<div class="nav-collapse collapse">
+				
+				#{if project}
 				<ul class="nav">
 					<li class="">
 						<a href="#">Overview</a>
 					</li>
-					<li class="active">
+					<li class="">
 						<a href="#">Issues</a>
 					</li>
 				</ul>
+				#{/if}
 				<ul class="nav pull-right">
+					#{if projects.size()>0}
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							Projects
+							&{'tracker.navbar.projects'}
 							<b class="caret"></b>
 						</a>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						<ul class="dropdown-menu" role="menu">
+						#{list items:projects, as:'p'}
 							<li>
-								<a href="#">Project #1</a>
+								<a href="@{Application.overview(p.id)}"><i class="icon-list-alt"></i> ${p?.title}</a>
+							</li>
+						#{/list}
+							<li class="divider"></li>
+							<li class="">
+								<a href="@{Application.newProjectPage}"><strong>&{'tracker.navbar.newProject'}</strong></a>
 							</li>
 						</ul>
 					</li>
+					#{/if}
+					#{else}
+					<li class="">
+						<button href="@{Application.newProjectPage}" class="btn btn-info">
+							<strong>&{'tracker.navbar.newProject'}</strong>
+						</button>
+					</li>
+					#{/else}
+					<li class="divider-vertical"></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 							<img style="border:1px; width:18px; height:18px; vertical-align:top;"/> Morteza
@@ -89,7 +111,7 @@
         
 		<footer class="footer">
 			<div class="container">
-				<p class="muted">Copyright &copy; 2013. Powered by <a href="http://tracker.fuschia.us">Fuschia Tracker</a>.</p>
+				<p class="muted">Copyright &copy; 2013. Powered by <a href="http://github.io/morteza/tracker">Tracker</a>.</p>
 			</div>
 		</footer>
 
