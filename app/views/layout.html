@@ -23,10 +23,76 @@
         <link rel="shortcut icon" type="image/png" href="@{'/public/img/favicon.png'}">
     </head>
     <body>
+		<div id="wrap">
+		<div class="navbar">
+			<div class="navbar-inner">
+			<div class="container">
+		 
+			<button class="btn btn-primary btn-navbar" data-toggle="collapse" data-target=".nav-collapse" style="color:rgb(115,115,115);text-shadow:none">
+				Menu
+			</button>
+		 
+			<a class="brand" href="http://tracker.fuschia.us" title="Powered by Fuschia Tracker">
+				<img src="@{'/public/img/favicon.png'}" style="height:20px;width:20px"/>
+			</a>
+			<a class="brand" href="#">Project#1</a>
+		
+			<!-- hidden at 940px or less -->
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li class="">
+						<a href="#">Overview</a>
+					</li>
+					<li class="active">
+						<a href="#">Issues</a>
+					</li>
+				</ul>
+				<ul class="nav pull-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							Projects
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<li>
+								<a href="#">Project #1</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							<img style="border:1px; width:18px; height:18px; vertical-align:top;"/> Morteza
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<li>
+								<a href="#">Profile</a>
+							</li>
+							<li>
+								<a href="#">Settings</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div> <!-- .nav-collapse -->
+			
+			</div> <!-- .container -->
+			</div> <!-- .navbar-inner -->
+			
+		</div> <!-- .navbar -->
+
     	<div class="container">
         #{doLayout /}
         </div> <!-- .container -->
         
+        <div id="push"></div>
+        </div> <!-- .wrap -->
+        
+		<footer class="footer">
+			<div class="container">
+				<p class="muted">Copyright &copy; 2013. Powered by <a href="http://tracker.fuschia.us">Fuschia Tracker</a>.</p>
+			</div>
+		</footer>
+
         <script src="@{'/public/js/jquery.min.js'}"></script>
         <script src="@{'/public/js/bootstrap.min.js'}"></script>
         #{get 'moreScripts' /}

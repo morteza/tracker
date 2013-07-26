@@ -19,3 +19,33 @@
     padding-top:15px;
     padding-bottom:15px
 }
+
+.footer {
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+    border-top: 1px solid #e5e5e5;
+    background-color: #f5f5f5;
+}
+.footer > .container > p {
+    margin-bottom: 0px;
+}
+
+/** Fot sticky footer */
+html,
+body {
+    height: 100%;
+}
+
+
+#push {
+    height: 50px;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -101px;
+}
