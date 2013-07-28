@@ -63,19 +63,19 @@
 						<ul class="dropdown-menu" role="menu">
 						#{list items:projects, as:'p'}
 							<li>
-								<a href="@{Application.overview(p.id)}"><i class="icon-list-alt"></i> ${p?.title}</a>
+								<a href="@{Projects.overview(p.id)}"><i class="icon-list-alt"></i> ${p?.title}</a>
 							</li>
 						#{/list}
 							<li class="divider"></li>
 							<li class="">
-								<a href="@{Application.newProjectPage}"><strong>&{'tracker.navbar.newProject'}</strong></a>
+								<a href="@{Projects.add}"><strong>&{'tracker.navbar.newProject'}</strong></a>
 							</li>
 						</ul>
 					</li>
 					#{/if}
 					#{else}
 					<li class="">
-						<button href="@{Application.newProjectPage}" class="btn btn-info">
+						<button href="@{Projects.add}" class="btn btn-info">
 							<strong>&{'tracker.navbar.newProject'}</strong>
 						</button>
 					</li>

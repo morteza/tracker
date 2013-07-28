@@ -6,12 +6,12 @@
 GET     /                                       Application.index
 
 # Projects links
-POST	/new									Application.newProject
+POST	/new									Projects.add
 
-GET		/new									Application.newProjectPage
+GET		/new									Projects.add
 
 # Project Overview
-GET		/{projectId}/overview/?					Application.overview
+GET		/{projectId}/overview/?					Projects.overview
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
