@@ -46,7 +46,7 @@
 						<ul class="dropdown-menu" role="menu">
 						#{list items:projects, as:'p'}
 							<li class="#{if project && p.id==project.id}active#{/if}">
-								<a href="@{Projects.overview(p.id)}"><i class="icon-list-alt"></i> ${p?.title}</a>
+								<a href="@{Projects.overview(p.id)}">${p?.title}</a>
 							</li>
 						#{/list}
 							<li class="divider"></li>
@@ -55,12 +55,14 @@
 							</li>
 						</ul>
 					</li>
+					#{if project}
 					<li class="">
 						<a href="#">Overview</a>
 					</li>
 					<li class="">
-						<a href="#">Issues</a>
+						<a href="@{Projects.issues(project.id)}">Issues</a>
 					</li>
+					#{/if}
 				</ul>
 				#{/if}
 				#{else}

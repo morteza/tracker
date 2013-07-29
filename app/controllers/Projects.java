@@ -59,21 +59,29 @@ public class Projects extends Controller {
 			@Required(message="Title is required.") String title,
 			String description) {
 		
-			// Only accept POST submissions
-			if ("GET".equalsIgnoreCase(request.method))
-				render();
+		// Only accept POST submissions
+		if ("GET".equalsIgnoreCase(request.method))
+			render();
 			
-			Project project = Project.findById(projectId);
+		Project project = Project.findById(projectId);
 			
-			Issue issue = new Issue();
-			issue.title = title;
-			issue.description = description;
+		Issue issue = new Issue();
+		issue.title = title;
+		issue.description = description;
 			
-			project.addIssue(issue);
+		project.addIssue(issue);
 			
-			//FIXME use messages to show the flash message
-			flash.success("Issue created successfully!");
-			flash.keep();
-			Projects.overview(projectId);
-		}
+		//FIXME use messages to show the flash message
+		flash.success("Issue created successfully!");
+		flash.keep();
+		Projects.overview(projectId);
+	}
+	
+	public static void issues(Long projectId) {
+		Project project = Project.findById(projectId);
+		
+		//TODO add pagination
+		List<Issue> issues = Issue.find("project = ?", project).fetch();
+		render(project,issues);
+	}
 }

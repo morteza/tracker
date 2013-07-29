@@ -37,7 +37,6 @@ public class Issues  extends Controller {
 		@Required(message="Title is required.") String title,
 		String description) {
 	
-		System.out.println("Passed ID: " + projectId);
 		Project project = Project.findById(projectId);
 
 		// Only accept POST submissions
@@ -54,5 +53,9 @@ public class Issues  extends Controller {
 		flash.success("Issue created successfully!");
 		flash.keep();
 		Projects.overview(projectId);
+	}
+	
+	public static void edit(Long id) {
+		todo();
 	}
 }

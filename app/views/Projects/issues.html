@@ -1,0 +1,18 @@
+#{extends 'layout.html' /}
+#{set title:'Fuschia Tracker' /}
+
+<div class="row">
+    #{list items:issues, as:'issue' }
+	<div class="col-lg-3">
+		<div class="panel">
+			<div class="panel-heading">
+				<strong>${issue.title}</strong>
+				<a href="@{Issues.edit(issue.id)}" class="pull-right"><i class="glyphicon glyphicon-pencil"></i></a>
+			</div>
+
+			${issue.description}
+
+	</div>
+	</div>
+	#{/list}
+</div>
