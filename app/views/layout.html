@@ -106,6 +106,27 @@
 		</div> <!-- .navbar -->
 
     	<div class="container">
+	    	#{if flash.success}
+	    	<div class="row">
+				<div class=" col-lg-6 col-offset-3">
+					<div class="alert alert-info alert-block">
+						<a class="close" data-dismiss="alert" href="#">&times;</a>
+						<p style="text-align:center">${flash.success}</p>
+					</div>
+				</div>
+			</div>
+			#{/if}
+			#{if flash.error}
+	    	<div class="row">
+				<div class=" col-lg-6 col-offset-3">
+					<div class="alert alert-danger alert-block">
+						<a class="close" data-dismiss="alert" href="#">&times;</a>
+					<p style="text-align:center">${flash.error}</p>
+					</div>
+				</div>
+			</div>
+			#{/if}
+			
         #{doLayout /}
         </div> <!-- .container -->
         
