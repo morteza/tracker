@@ -1,39 +1,30 @@
 #{extends 'layout.html' /}
 #{set 'title'}New Project#{/set}
 
-<div class="row-fluid">
-	<div class="card span8 offset2">
-		<form class="form-horizontal" method="POST" action="@{Projects.add}">
-		
-		  <div class="control-group">
-		    <label class="control-label" for="inputTitle">Title</label>
-		    <div class="controls">
-		      <input type="text" name="title" id="inputTitle" class="span10" placeholder="Title">
-		    </div>
+<div class="row">
+	<div class="card col-lg-8 col-offset-2 panel">
+		<form method="POST" action="@{Projects.add}">
+		  <legend>Add new project</legend>
+		  <div class="form-group">
+		    <label for="inputTitle">Title</label>
+			<input type="text" name="title" id="inputTitle" class="form-control" placeholder="Title">
 		  </div>
 
-		  <div class="control-group">
-		    <label class="control-label" for="inputIdentifier">Identifier</label>
-		    <div class="controls">
-		      <input type="text" name="identifier" id="inputIdentifier" class="span10" placeholder="Unique Identifier">
-		    </div>
+		  <div class="form-group">
+		    <label for="inputIdentifier">Identifier</label>
+			<input type="text" name="identifier" id="inputIdentifier" class="form-control" placeholder="Unique Identifier">
 		  </div>
 
-		  <div class="control-group">
-		    <label class="control-label" for="inputDescription">Description</label>
-		    <div class="controls">
-		      <textarea name="description" id="inputDescription" rows="5" class="span10" placeholder="Description"></textarea>
-		    </div>
+		  <div class="form-group">
+		    <label for="inputDescription">Description</label>
+			<textarea name="description" id="inputDescription" rows="5" class="form-control" placeholder="Description"></textarea>
 		  </div>
-		  
-		  
-		  <div class="control-group">
-		    <label class="control-label" for="inputRepository">Repository Address</label>
-		    <div class="controls">
-		      <input type="text" name="repository" id="inputRepository" class="span10" placeholder="e.g. https://github.com/morteza/tracker.git">
-		    </div>
+
+		  <div class="form-group">
+		    <label for="inputRepository">Repository Address</label>
+			<input type="text" name="repository" id="inputRepository" class="form-control" placeholder="e.g. https://github.com/morteza/tracker.git">
 		  </div>
-		  
+
 		  <div class="control-group">
 		    <div class="controls">
 		      <button type="submit" class="btn btn-primary">Create</button>

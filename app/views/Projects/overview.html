@@ -1,20 +1,13 @@
 #{extends 'layout.html' /}
 #{set 'title'}${project?.title} | Overview#{/set}
 
-<div class="row-fluid">
+<div class="row">
 	
-	<div class="card span12">
-		<div class="card-heading image">
-			<img />
-			<div class="card-heading-header">
-				<h3>${project?.title}</h3>
-			</div>
-		</div>
-	   
-		<div class="card-body">
-			${project?.description}
-		</div>
-	
+	<div class="col-lg-12">
+		<div class="panel">
+			<h2 class="panel-title">${project?.title}</h2>
+	 		<span class="text-muted">${project?.description}</span>
+		</div> <!-- .panel -->
 	</div>
 
 </div>
