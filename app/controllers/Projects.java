@@ -53,4 +53,27 @@ public class Projects extends Controller {
     	flash.keep();
     	overview(newProject.id);
     }
+    
+	public static void addIssue(
+			@Required(message="Project is required to add an issue.") Long projectId,
+			@Required(message="Title is required.") String title,
+			String description) {
+		
+			// Only accept POST submissions
+			if ("GET".equalsIgnoreCase(request.method))
+				render();
+			
+			Project project = Project.findById(projectId);
+			
+			Issue issue = new Issue();
+			issue.title = title;
+			issue.description = description;
+			
+			project.addIssue(issue);
+			
+			//FIXME use messages to show the flash message
+			flash.success("Issue created successfully!");
+			flash.keep();
+			Projects.overview(projectId);
+		}
 }

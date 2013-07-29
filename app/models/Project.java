@@ -46,6 +46,7 @@ public class Project extends Model {
 	}
 	
     public Project addIssue(Issue newIssue) {
+    	newIssue.project = this;
         this.issues.add(newIssue);
         this.save();
         return this;

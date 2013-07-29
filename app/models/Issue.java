@@ -30,4 +30,9 @@ public class Issue extends Model {
 	@Required
 	@ManyToOne
 	public Project project;
+	
+	@Required
+	public String title;
+	
+	public String description;
 }

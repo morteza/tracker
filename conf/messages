@@ -12,4 +12,5 @@
 tracker.applicationName=Tracker
 
 tracker.navbar.newProject=New Project
+tracker.navbar.newIssue=New Issue
 tracker.navbar.projects=Projects
