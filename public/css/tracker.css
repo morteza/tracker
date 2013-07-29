@@ -1,6 +1,5 @@
-@import url("font-awesome.min.css");
-@import url("bootplus.min.css");
-@import url("bootplus-responsive.min.css");
+@import url("bootstrap.css");
+@import url("bootstrap-glyphicons.css");
 
 .padded {
     padding: 15px
@@ -35,6 +34,7 @@
 html,
 body {
     height: 100%;
+    padding-top: 50px;
 }
 
 
