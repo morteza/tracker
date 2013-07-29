@@ -76,9 +76,14 @@
 				<ul class="nav navbar-nav pull-right">
 					#{if project}
 					<li>
+						<!--
 						<button data-target="@{Issues.add(project?.id).remove("title").remove("description")}" class="button-anchor btn btn-success navbar-btn">
 							<strong>&{'tracker.navbar.newIssue'}</strong>
-						</button>						
+						</button>
+						-->
+						<button data-toggle="modal" data-target="#newIssueModal" class="btn btn-success navbar-btn">
+							New Issue
+						</button>
 					</li>
 					<li class="divider-vertical"></li>
 					#{/if}
@@ -113,6 +118,11 @@
 			</div>
 		</footer>
 
+		<!-- modals -->
+		#{if project}
+			#{tracker.newIssueModal activeProject:project /}
+		#{/if}
+		
         <script src="@{'/public/js/jquery.min.js'}"></script>
         <script src="@{'/public/js/bootstrap.min.js'}"></script>
         <script>

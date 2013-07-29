@@ -37,6 +37,7 @@ public class Issues  extends Controller {
 		@Required(message="Title is required.") String title,
 		String description) {
 	
+		System.out.println("Passed ID: " + projectId);
 		Project project = Project.findById(projectId);
 
 		// Only accept POST submissions
