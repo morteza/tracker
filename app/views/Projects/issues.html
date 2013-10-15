@@ -2,17 +2,23 @@
 #{set title:'Fuschia Tracker' /}
 
 <div class="row">
+    %{ i = 0 }%
     #{list items:issues, as:'issue' }
-	<div class="col-lg-3">
-		<div class="panel">
+    %{ i = i + 1 }%
+	<div class="col-lg-4">
+		<div class="panel panel-info">
 			<div class="panel-heading">
 				<strong>${issue.title}</strong>
 				<a href="@{Issues.edit(issue.id)}" class="pull-right"><i class="glyphicon glyphicon-pencil"></i></a>
 			</div>
-
+            <div class="panel-body">
 			${issue.description}
-
+            </div>
+	   </div>
 	</div>
+	#{if i%3==0}
 	</div>
+	<div class="row">
+	#{/if}
 	#{/list}
 </div>

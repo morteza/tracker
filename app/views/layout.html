@@ -5,109 +5,26 @@
         <meta charset="utf-8">
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<meta name="description" content="Fuschia Tracker">
 		<meta name="author" content="Morteza Ansarinia">
         
         <title>#{get 'title' /}</title>
 
-        <link rel="stylesheet" media="screen" href="@{'/public/css/tracker.css'}">
+        <link rel="stylesheet" href="@{'/public/css/bootstrap.css'}">
+        <!-- <link rel="stylesheet" href="@{'/public/css/bootstrap-theme.css'}"> -->
+        <!-- <link rel="stylesheet" href="@{'/public/css/bootstrap-rtl.css'}"> -->
+        <link rel="stylesheet" href="@{'/public/css/tracker.css'}">
         #{get 'moreStyles' /}
 		
         <link rel="shortcut icon" type="image/png" href="@{'/public/img/favicon.png'}">
     </head>
     <body>
 		<div id="wrap">
-		
-		<div class="navbar navbar-fixed-top">
-		<div class="container">
-		    <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			
-			<a href="@{Application.index}" class="navbar-brand">
-				<img src="@{'/public/img/favicon.png'}" style="height:20px;width:20px"/>
-			</a>
-			
-			<!-- Place everything within .navbar-collapse to hide it until above 768px -->
-    		<div class="nav-collapse collapse navbar-responsive-collapse">
-				#{if projects.size>0}
-				<ul class="nav navbar-nav">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							#{if project}${project.title}#{/if}
-							#{else}&{'tracker.navbar.projects'}#{/else}
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu" role="menu">
-						#{list items:projects, as:'p'}
-							<li class="#{if project && p.id==project.id}active#{/if}">
-								<a href="@{Projects.overview(p.id)}">${p?.title}</a>
-							</li>
-						#{/list}
-							<li class="divider"></li>
-							<li class="">
-								<a href="@{Projects.add}"><strong>&{'tracker.navbar.newProject'}</strong></a>
-							</li>
-						</ul>
-					</li>
-					#{if project}
-					<li class="">
-						<a href="#">Overview</a>
-					</li>
-					<li class="">
-						<a href="@{Projects.issues(project.id)}">Issues</a>
-					</li>
-					#{/if}
-				</ul>
-				#{/if}
-				#{else}
-					<ul class="nav navbar-nav">
-						<li class="">
-							<button href="@{Projects.add}" class="btn btn-primary navbar-btn">
-								<strong>&{'tracker.navbar.newProject'}</strong>
-							</button>
-						</li>
-					</ul>
-				#{/else}
-
-				<ul class="nav navbar-nav pull-right">
-					#{if project}
-					<li>
-						<!--
-						<button data-target="@{Issues.add(project?.id).remove("title").remove("description")}" class="button-anchor btn btn-success navbar-btn">
-							<strong>&{'tracker.navbar.newIssue'}</strong>
-						</button>
-						-->
-						<button data-toggle="modal" data-target="#newIssueModal" class="btn btn-success navbar-btn">
-							New Issue
-						</button>
-					</li>
-					<li class="divider-vertical"></li>
-					#{/if}
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							<img style="border:1px; width:18px; height:18px; vertical-align:top;"/> Morteza
-						</a>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-							<li>
-								<a href="#">Profile</a>
-							</li>
-							<li>
-								<a href="#">Settings</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div> <!-- .nav-collapse -->
-		</div> <!-- .container -->	
-		</div> <!-- .navbar -->
 
     	<div class="container">
+    	    #{tracker.navbar project:project, projects:projects /}
+    	
 	    	#{if flash.success}
 	    	<div class="row">
 				<div class=" col-lg-6 col-offset-3">
@@ -131,13 +48,14 @@
 			
         #{doLayout /}
         </div> <!-- .container -->
-        
-        <div id="push"></div>
-        </div> <!-- .wrap -->
+        </div> <!-- #wrap -->
         
 		<footer class="footer">
 			<div class="container">
-				<p class="muted">Copyright &copy; 2013. Powered by <a href="http://github.com/morteza/tracker">Tracker</a>.</p>
+				<p class="text-muted small">&copy; 2013. Powered by 
+				<a href="http://github.com/morteza/tracker">
+                    <img src="@{'/public/img/favicon.png'}" style="height:18px;width:18px"/>
+                </a>.
 			</div>
 		</footer>
 
@@ -146,8 +64,8 @@
 			#{tracker.newIssueModal activeProject:project /}
 		#{/if}
 		
-        <script src="@{'/public/js/jquery.min.js'}"></script>
-        <script src="@{'/public/js/bootstrap.min.js'}"></script>
+        <script src="@{'/public/js/jquery.js'}"></script>
+        <script src="@{'/public/js/bootstrap.js'}"></script>
         <script>
 			$(".button-anchor").click(function(){
 			window.location = $(this).data('target');

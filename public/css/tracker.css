@@ -1,7 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
-@import url("bootstrap.css");
-@import url("bootstrap-glyphicons.css");
-
+/* @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+*/
 .padded {
     padding: 15px
 }
@@ -20,12 +18,21 @@
     padding-bottom:15px
 }
 
-.navbar {
-    border-bottom: 2px solid #e5e5e5;
+.masthead .text-muted a {
+    color: #777777;
+    text-decoration: none;
+}
+
+.masthead .text-muted a:hover {
+    color: #333;
+}
+
+.navbar-brand {
+    padding: 0;
 }
 
 .footer {
-    text-align: center;
+    text-align: left;
     padding: 15px 0;
     margin-top: 50px;
     border-top: 2px solid #e5e5e5;
@@ -39,12 +46,7 @@
 html,
 body {
     height: 100%;
-    padding-top: 35px;
-}
-
-
-#push {
-    height: 50px;
+    /*padding-top: 35px;*/
 }
 
 #wrap {

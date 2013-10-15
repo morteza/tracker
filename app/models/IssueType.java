@@ -19,4 +19,8 @@ public class IssueType extends Model {
 
 	public String name;
 
+	public IssueType(String name) {
+		this.name = name;
+	}
+	
 }
