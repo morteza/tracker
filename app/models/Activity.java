@@ -5,30 +5,36 @@
  *     Project: com.ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
-package models2;
+package models;
 
 import java.util.Date;
 
-import play.data.validation.InPast;
-import play.data.validation.Required;
-import play.db.jpa.Model;
+import javax.persistence.Id;
+
+import play.db.ebean.Model;
+import play.data.validation.*;
 
 public class Activity extends Model {
+	
+	private static final long serialVersionUID = 1L;
 
-	@Required
+	@Id
+	public Long id;
+	
+	@Constraints.Required
 	public Account account;
 	
-	@Required
+	@Constraints.Required
 	public Project project;
 	
-	@Required
+	@Constraints.Required
 	public ActivityType type;
 	
-	@Required
+	@Constraints.Required
 	public String message;
 	
 	public String additionalInfo;
 	
-	@InPast
+	//TODO: @InPast
 	public Date timestamp;
 }

@@ -6,17 +6,23 @@
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 
-package models2;
+package models;
 
-import play.*;
-import play.db.jpa.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-import javax.persistence.*;
-import java.util.*;
+import play.db.ebean.Model;
+import play.data.validation.*;
 
 @Entity
 public class IssueType extends Model {
 
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	public Long id;
+
+	@Constraints.Required
 	public String name;
 
 	public IssueType(String name) {

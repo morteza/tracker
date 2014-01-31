@@ -5,21 +5,27 @@
  *     Project: com.ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
-package models2;
+package models;
 
-import play.data.validation.Required;
-import play.data.validation.URL;
-import play.db.jpa.Model;
+import javax.persistence.Id;
+
+import play.db.ebean.Model;
+import play.data.validation.*;
 
 public class WebHook extends Model {
 	
-	@Required
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	public Long id;
+
+	@Constraints.Required
 	public Account account;
 	
-	@Required
+	@Constraints.Required
 	public Project project;
 	
-	@Required
-	@URL
+	@Constraints.Required
+	//TODO @URL
 	public String url;
 }

@@ -5,27 +5,33 @@
  *     Project: com.ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
-package models2;
+package models;
 
 import java.util.Date;
 
-import play.data.validation.InFuture;
-import play.data.validation.Required;
-import play.db.jpa.Model;
+import javax.persistence.Id;
+
+import play.db.ebean.Model;
+import play.data.validation.*;
 
 public class Milestone extends Model {
 	
-	@Required
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	public Long id;
+
+	@Constraints.Required
 	public Account author;
 	
-	@Required
+	@Constraints.Required
 	public Project project;
 	
-	@Required
+	@Constraints.Required
 	public String title;
 	public String description;
 
-	@InFuture
+	//TODO: @InFuture
 	public Date due;
 	
 	public Date closedAt;

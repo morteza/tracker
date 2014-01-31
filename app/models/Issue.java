@@ -5,29 +5,36 @@
  *     Project: com.ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
-package models2;
+package models;
 
 import java.util.Date;
 
 import javax.persistence.ManyToOne;
+import javax.persistence.Id;
 
-import play.data.validation.Required;
-import play.db.jpa.Model;
+import play.db.ebean.Model;
+import play.data.validation.*;
 
 public class Issue extends Model {
-	@Required
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	public Long id;
+
+	@Constraints.Required
 	public IssueType type;
 	
-	@Required
+	@Constraints.Required
 	public Date createAt;
 	
 	public Date modifiedAt;
 	
-	@Required
+	@Constraints.Required
 	@ManyToOne
 	public Project project;
 	
-	@Required
+	@Constraints.Required
 	public String title;
 	
 	public String description;

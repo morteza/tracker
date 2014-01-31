@@ -5,25 +5,30 @@
  *     Project: com.ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
-package models2;
+package models;
 
-import play.data.validation.Email;
-import play.data.validation.Password;
-import play.data.validation.Required;
-import play.data.validation.Unique;
-import play.db.jpa.Model;
+import javax.persistence.Id;
+
+import play.db.ebean.Model;
+import play.data.validation.*;
+
 
 public class Collaborator extends Model {
 	
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	public Long id;
+	
 	public String fullName;
 	
-	@Unique
-	@Required
-	@Email
+	//TODO @Unique
+	@Constraints.Required
+	@Constraints.Email
 	public String email;
 	
-	@Required
-	@Password
+	@Constraints.Required
+	//TODO @Password
 	public String hashedPassword;
 	
 	public Project project;

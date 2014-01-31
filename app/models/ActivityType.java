@@ -5,7 +5,7 @@
  *     Project: com.ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
-package models2;
+package models;
 
 public enum ActivityType {
 	LOG, AUDIT, ANALYTIC

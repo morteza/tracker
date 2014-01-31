@@ -1,3 +1,5 @@
+import play.Project._
+
 organization := "com.ratnic"
 
 name := "tracker"
@@ -10,4 +12,4 @@ libraryDependencies ++= Seq(
   cache
 )     
 
-play.Project.playJavaSettings
+playJavaSettings

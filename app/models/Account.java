@@ -5,40 +5,41 @@
  *     Project: com.ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
-package models2;
+package models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Transient;
 
-import play.data.validation.Email;
-import play.data.validation.InPast;
-import play.data.validation.Password;
-import play.data.validation.Required;
-import play.data.validation.URL;
-import play.data.validation.Unique;
-import play.db.jpa.Model;
+import play.db.ebean.Model;
+import play.data.validation.*;
 
 @Entity
 public class Account extends Model {
+	
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	public Long id;
 	
 	public String fullName;
 	
 	/**
 	 * Email address, rather than username, is used for authentication/authorization/etc.
 	 */
-	@Unique
-	@Required
-	@Email
+	@Constraints.Required
+	@Constraints.Email
 	public String email;
 		
-	@Password
-	@Required
+	//TODO: @Password
+	@Constraints.Required
 	public String hashedPassword;
 	
-	//TODO: do users need unique url? for what? It's under investigation! So it's private and transient for now.
-	@Unique
+	//TODO: do users really need unique url? for what? It's under investigation! So it's private and transient for now.
+	//TODO: @Unique
 	@Transient
 	private String userName;
 
@@ -47,16 +48,16 @@ public class Account extends Model {
 	public Boolean isRemoved = false;
 	public Boolean isConfirmed = false;
 	
-	@URL
+	//TODO: @URL
 	public String homepage;
 	
-	@InPast
+	//TODO: @InPast
 	public Date registeredDate;
 	
-	@InPast
+	//TODO: @InPast
 	public Date updatedDate;
 	
-	@InPast
+	//TODO: @InPast
 	public Date lastLoginDate;
 	
 	public String imagePath;
@@ -69,4 +70,20 @@ public class Account extends Model {
 			.append("");
 		return sb.toString();
 	}
+	
+	public static Finder<Long,Account> find = new Finder<Long, Account>(Long.class, Account.class);
+	
+	// CRUD operations
+	public static List<Account> all() {
+		return find.all();
+	}
+
+	public static void create(Account account) {
+		account.save();
+	}
+
+	public static void delete(Long id) {
+		find.ref(id).delete();
+	}
+	
 }

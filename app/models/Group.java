@@ -5,23 +5,28 @@
  *     Project: com.ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
-package models2;
+package models;
 
 import java.util.List;
 
 import javax.persistence.ManyToMany;
+import javax.persistence.Id;
 
-import play.data.validation.Required;
-import play.data.validation.Unique;
-import play.db.jpa.Model;
+import play.db.ebean.Model;
+import play.data.validation.*;
 
 public class Group extends Model {
-	
-	@Unique
-	@Required
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	public Long id;
+
+	//TODO @Unique
+	@Constraints.Required
 	public String name;
 	
-	@Required
+	@Constraints.Required
 	public Account account;
 	
 	@ManyToMany
