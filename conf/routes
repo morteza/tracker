@@ -3,21 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET     /                           controllers.Application.index()
 
-# Projects links
-POST	/new									Projects.add
-
-GET		/new									Projects.add
-
-# Project Overview
-GET		/{projectId}/overview/?					Projects.overview
-
-# Ignore favicon requests
-GET     /favicon.ico                            404
-
-# Map static resources from the /app/public folder to the /public path
-GET     /public/                                staticDir:public
-
-# Catch all
-*       /{controller}/{action}                  {controller}.{action}
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

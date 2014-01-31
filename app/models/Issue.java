@@ -1,24 +1,20 @@
 /*******************************************************************************
  *        File: Issue.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
- *  Created on: Jul 26, 2013
- *     Project: Fuschia Tracker
+ *  Created on: Jan 31, 2014
+ *     Project: com.ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
+package models2;
 
-package models;
+import java.util.Date;
 
-import play.*;
+import javax.persistence.ManyToOne;
+
 import play.data.validation.Required;
-import play.db.jpa.*;
+import play.db.jpa.Model;
 
-import javax.persistence.*;
-
-import java.util.*;
-
-@Entity
 public class Issue extends Model {
-
 	@Required
 	public IssueType type;
 	

@@ -1,5 +1,0 @@
-# Application dependencies
-
-require:
-    - play
-    - org.eclipse.jgit -> org.eclipse.jgit [3.0,)

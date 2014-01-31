@@ -1,54 +1,42 @@
 /*******************************************************************************
  *        File: Project.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
- *  Created on: Jul 26, 2013
- *     Project: Fuschia Tracker
+ *  Created on: Jan 31, 2014
+ *     Project: com.ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
+package models2;
 
-package models;
+import java.util.Date;
+import java.util.List;
 
-import play.*;
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
+
+import play.data.validation.InPast;
 import play.data.validation.Required;
 import play.data.validation.Unique;
-import play.db.jpa.*;
+import play.db.jpa.Model;
 
-import javax.persistence.*;
-
-import java.util.*;
-
-@Entity
 public class Project extends Model {
-
-	@Required
-	public String title;
 	
+	@Required
+	public Account owner;
+	
+	@Required
+	public Project parent;
+	
+	@Required
 	@Unique
-	@Required
-	public String identifier;
-	
+	public String name;
 	public String description;
+	
+	public Boolean isPrivate = false;
 	
     @OneToMany(mappedBy="project", cascade=CascadeType.ALL)
 	public List<Issue> issues;
-	
-	public String repository;
-	
-	public Project(String title, String identifier, String description, String repositoryAddress) {
-		this.title = title;
-		this.identifier = identifier;
-		this.description = description;
-		this.repository = repositoryAddress.trim();
-		
-		if (this.repository.endsWith("/")) {
-			this.repository = this.repository.substring(0, repositoryAddress.length()-1);
-		}
-	}
-	
-    public Project addIssue(Issue newIssue) {
-    	newIssue.project = this;
-        this.issues.add(newIssue);
-        this.save();
-        return this;
-    }
+
+	public Date registeredAt;	
+	public Date updatedAt;
+	public Date lastActivityAt;
 }

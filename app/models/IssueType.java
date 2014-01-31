@@ -6,7 +6,7 @@
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 
-package models;
+package models2;
 
 import play.*;
 import play.db.jpa.*;

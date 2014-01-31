@@ -1,14 +1,3 @@
-*.db
-/.classpath
-/.project
-/tmp
-*.class
-/eclipse
-/.settings
-/lib
-/precompiled
-
-# From Play 2.x
 logs
 project/project
 project/target
