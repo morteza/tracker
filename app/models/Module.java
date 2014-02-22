@@ -15,7 +15,7 @@ import javax.persistence.Id;
 import play.db.ebean.Model;
 import play.data.validation.*;
 
-public class Issue extends Model {
+public class Module extends Model {
 
 	private static final long serialVersionUID = 1L;
 
@@ -23,18 +23,12 @@ public class Issue extends Model {
 	public Long id;
 
 	@Constraints.Required
-	public String summary;	
+	public String title;	
 
 	@Constraints.Required
 	public Account creator;
 	
 	public String description;
-
-	@Constraints.Required
-	public IssueType type;
-	
-	@Constraints.Required
-	public IssueStatus status;
 	
 	@Constraints.Required
 	public Date createdAt;
@@ -43,5 +37,5 @@ public class Issue extends Model {
 	
 	@Constraints.Required
 	@ManyToOne
-	public Project project;
+	public Project project;	
 }

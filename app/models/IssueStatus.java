@@ -1,21 +1,21 @@
 /*******************************************************************************
- *        File: Issue.java
+ *        File: IssueStatus.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
- *  Created on: Jan 31, 2014
+ *  Created on: Feb 7, 2013
  *     Project: com.ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
+
 package models;
 
-import java.util.Date;
-
-import javax.persistence.ManyToOne;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import play.db.ebean.Model;
 import play.data.validation.*;
 
-public class Issue extends Model {
+@Entity
+public class IssueStatus extends Model {
 
 	private static final long serialVersionUID = 1L;
 
@@ -23,25 +23,10 @@ public class Issue extends Model {
 	public Long id;
 
 	@Constraints.Required
-	public String summary;	
+	public String name;
 
-	@Constraints.Required
-	public Account creator;
+	public IssueStatus(String name) {
+		this.name = name;
+	}
 	
-	public String description;
-
-	@Constraints.Required
-	public IssueType type;
-	
-	@Constraints.Required
-	public IssueStatus status;
-	
-	@Constraints.Required
-	public Date createdAt;
-	
-	public Date modifiedAt;
-	
-	@Constraints.Required
-	@ManyToOne
-	public Project project;
 }

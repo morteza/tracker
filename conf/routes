@@ -5,8 +5,13 @@
 # Home page
 GET     /                           controllers.Application.index()
 
-# List of all projects
-GET     /projects                   controllers.Application.projects()
+# Projects controller routes
+GET     /projects                  controllers.Projects.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+GET     /projects/new              controllers.Projects.create()
+POST    /projects                  controllers.Projects.save()
+GET     /projects/:id              controllers.Projects.edit(id:Long)
+POST    /projects/:id              controllers.Projects.update(id:Long)
+POST    /projects/:id/delete       controllers.Projects.delete(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

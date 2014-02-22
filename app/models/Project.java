@@ -11,12 +11,16 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Id;
+
+import com.avaje.ebean.Page;
 
 import play.db.ebean.Model;
 import play.data.validation.*;
 
+@Entity
 public class Project extends Model {
 	
 	private static final long serialVersionUID = 1L;
@@ -43,4 +47,29 @@ public class Project extends Model {
 	public Date registeredAt;	
 	public Date updatedAt;
 	public Date lastActivityAt;
+	
+    
+    /**
+     * Generic query helper for entity Computer with id Long
+     */
+    public static Finder<Long,Project> find = new Finder<Long,Project>(Long.class, Project.class); 
+
+    /**
+     * Return a page of project
+     *
+     * @param page Page to display
+     * @param pageSize Number of computers per page
+     * @param sortBy Project property used for sorting
+     * @param order Sort order (either or "asc" or "desc")
+     * @param filter Filter applied on the name column
+     */
+    public static Page<Project> page(int page, int pageSize, String sortBy, String order, String filter) {
+        return find.where()
+                .ilike("name", "%" + filter + "%")
+                .orderBy(sortBy + " " + order)
+                .fetch("issues") // To fetch all related issues to this project too.
+                .findPagingList(pageSize)
+                .setFetchAhead(false)
+                .getPage(page);
+    }
 }

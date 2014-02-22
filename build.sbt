@@ -1,8 +1,8 @@
 import play.Project._
 
-organization := "com.ratnic"
+// organization := "ratnic"
 
-name := "tracker"
+name := "ratnic.tracker"
 
 version := "2.0-SNAPSHOT"
 
