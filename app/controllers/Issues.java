@@ -8,12 +8,14 @@
 package controllers;
 
 import models.Account;
+import models.Comment;
 import models.Issue;
 import models.Project;
 import play.mvc.*;
 
 public class Issues extends Controller {
 
+	
     public static Result index() {
         return TODO;
     }
@@ -24,7 +26,7 @@ public class Issues extends Controller {
      * @param project
      * @return
      */
-    public static Result list(Project project) {
+    public static Result list() {
     	return TODO;
     }
 
@@ -33,7 +35,7 @@ public class Issues extends Controller {
      * @param issue
      * @return
      */
-    public static Result show(Issue issue) {
+    public static Result show(Long id) {
     	return TODO;
     }
 
@@ -42,7 +44,7 @@ public class Issues extends Controller {
      * @param issue
      * @return
      */
-    public static Result open(Issue issue) {
+    public static Result open(Long id) {
     	return TODO;
     }
 
@@ -51,7 +53,7 @@ public class Issues extends Controller {
      * @param issue
      * @return
      */
-    public static Result close(Issue issue) {
+    public static Result close(Long id) {
     	return TODO;
     }
 
@@ -60,7 +62,7 @@ public class Issues extends Controller {
      * @param issue
      * @return
      */
-    public static Result edit(Issue issue) {
+    public static Result edit(Long id) {
     	return TODO;
     }
 
@@ -69,7 +71,7 @@ public class Issues extends Controller {
      * @param issue
      * @return
      */
-    public static Result comment(Issue issue) {
+    public static Result comment(Long id) {
     	return TODO;
     }
 
@@ -78,7 +80,7 @@ public class Issues extends Controller {
      * @param issue
      * @return
      */
-    public static Result label(Issue issue) {
+    public static Result label(Long id) {
     	return TODO;
     }
 
@@ -88,7 +90,7 @@ public class Issues extends Controller {
      * @param account
      * @return
      */
-    public static Result assign(Issue issue, Account account) {
+    public static Result assign(Long issueId, Long accountId) {
     	return TODO;
     }
 
@@ -98,7 +100,7 @@ public class Issues extends Controller {
      * @param issue
      * @return
      */
-    public static Result unassign(Issue issue) {
+    public static Result unassign(Long id) {
     	return TODO;
     }
     

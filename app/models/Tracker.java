@@ -1,12 +1,23 @@
 /*******************************************************************************
- *        File: Dashboard.java
+ *        File: Tracker.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
- *  Created on: Jan 31, 2014
+ *  Created on: Feb 7, 2013
  *     Project: ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
+
 package models;
 
-public class Dashboard {
+import javax.persistence.Entity;
 
+import play.db.ebean.Model;
+
+/**
+ * System-level configurations.
+ *
+ */
+@Entity
+public class Tracker extends Model {
+
+	private static final long serialVersionUID = 1L;
 }

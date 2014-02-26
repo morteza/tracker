@@ -2,7 +2,7 @@
  *        File: Project.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Jan 31, 2014
- *     Project: com.ratnic.tracker
+ *     Project: ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 package models;
@@ -31,12 +31,15 @@ public class Project extends Model {
 	@Constraints.Required
 	public Account owner;
 	
-	@Constraints.Required
-	public Project parent;
+//	@Constraints.Required
+//	public Project parent;
 	
 	@Constraints.Required
 	//TODO @Unique
 	public String name;
+
+	public String title;
+	
 	public String description;
 	
 	public Boolean isPrivate = false;
@@ -44,10 +47,8 @@ public class Project extends Model {
     @OneToMany(mappedBy="project", cascade=CascadeType.ALL)
 	public List<Issue> issues;
 
-	public Date registeredAt;	
-	public Date updatedAt;
-	public Date lastActivityAt;
-	
+	public Date createdAt;		
+	public Date updatedAt;	
     
     /**
      * Generic query helper for entity Computer with id Long

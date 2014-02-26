@@ -2,7 +2,7 @@
  *        File: IssueType.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Jul 26, 2013
- *     Project: Fuschia Tracker
+ *     Project: ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 

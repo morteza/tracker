@@ -1,39 +1,36 @@
 /*******************************************************************************
- *        File: Milestone.java
+ *        File: Tag.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
- *  Created on: Jan 31, 2014
+ *  Created on: Feb 7, 2013
  *     Project: ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
+
 package models;
 
-import java.util.Date;
-
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import play.db.ebean.Model;
 import play.data.validation.*;
 
-public class Milestone extends Model {
-	
+@Entity
+public class Tag extends Model {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	public Long id;
 
 	@Constraints.Required
-	public Account author;
+	public String name;
 	
-	@Constraints.Required
-	public Project project;
+	//TODO check HEX pattern
+	public String color;
 	
-	@Constraints.Required
-	public String title;
-	public String description;
-
-	@Constraints.Required
-	public Boolean closed = false;
+	public Tag(String name, String color) {
+		this.name = name;
+		this.color = color;
+	}
 	
-	public Date dueDate;	
-	public Date closedAt;
 }

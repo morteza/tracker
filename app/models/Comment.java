@@ -2,7 +2,7 @@
  *        File: Comment.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Jan 31, 2014
- *     Project: com.ratnic.tracker
+ *     Project: ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 package models;
@@ -25,13 +25,10 @@ public class Comment extends Model {
 	public Account author;
 	
 	@Constraints.Required
-	public Issue issue;
-	
-	@Constraints.Required
 	public String content;
 	
 	@Constraints.Required
-	public Date writtenAt;
+	public Date createdAt;
 	
 	@Constraints.Required
 	public Date updatedAt;

@@ -2,7 +2,7 @@
  *        File: Activity.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Jan 31, 2014
- *     Project: com.ratnic.tracker
+ *     Project: ratnic.tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 package models;
@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.persistence.Id;
 
 import play.db.ebean.Model;
+import play.data.format.Formats;
 import play.data.validation.*;
 
 public class Activity extends Model {
@@ -25,16 +26,11 @@ public class Activity extends Model {
 	public Account account;
 	
 	@Constraints.Required
-	public Project project;
-	
-	@Constraints.Required
 	public ActivityType type;
 	
 	@Constraints.Required
 	public String message;
 	
-	public String additionalInfo;
-	
-	//TODO: @InPast
+	@Formats.DateTime(pattern="MMM dd,yyyy HH:mm:ss")
 	public Date timestamp;
 }
