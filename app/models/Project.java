@@ -45,7 +45,7 @@ public class Project extends Model {
 	public Boolean isPrivate = false;
 	
     @OneToMany(mappedBy="project", cascade=CascadeType.ALL)
-	public List<Issue> issues;
+	public List<Ticket> issues;
 
 	public Date createdAt;		
 	public Date updatedAt;	

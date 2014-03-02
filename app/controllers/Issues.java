@@ -9,7 +9,7 @@ package controllers;
 
 import models.Account;
 import models.Comment;
-import models.Issue;
+import models.Ticket;
 import models.Project;
 import play.mvc.*;
 

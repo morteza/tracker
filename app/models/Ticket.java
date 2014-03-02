@@ -1,5 +1,6 @@
 /*******************************************************************************
- *        File: Issue.java
+ *        File: Ticket.java
+ *    Revision: 2
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Jan 31, 2014
  *     Project: ratnic.tracker
@@ -17,7 +18,7 @@ import javax.validation.Constraint;
 import play.db.ebean.Model;
 import play.data.validation.*;
 
-public class Issue extends Model {
+public class Ticket extends Model {
 
 	private static final long serialVersionUID = 1L;
 
@@ -33,7 +34,7 @@ public class Issue extends Model {
 	public Account assignee;
 	
 	@Constraints.Required
-	public IssueType type;
+	public TicketType type;
 	
 	//TODO temporary. Use status instead!
 	@Constraints.Required
