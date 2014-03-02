@@ -27,12 +27,7 @@ public class Projects extends Controller {
      * @param filter Filter applied on computer names
      */
     public static Result list(int page, String sortBy, String order, String filter) {
-        return ok(
-            views.html.projects.list.render(
-                Project.page(page, 10, sortBy, order, filter),
-                sortBy, order, filter
-            )
-        );
+        return TODO;
     }
 
     /**
