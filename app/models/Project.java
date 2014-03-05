@@ -15,41 +15,39 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Id;
 
-import com.avaje.ebean.Page;
-
 import play.db.ebean.Model;
 import play.data.validation.*;
+import play.data.format.*;
 
 @Entity
 public class Project extends Model {
-	
-	private static final long serialVersionUID = 1L;
 
-	@Id
-	public Long id;
+    private static final long serialVersionUID = 1L;
 
-	@Constraints.Required
-	public Account owner;
-	
-//	@Constraints.Required
-//	public Project parent;
-	
-	@Constraints.Required
-	//TODO @Unique
-	public String name;
+    @Id
+    public Long id;
 
-	public String title;
-	
-	public String description;
-	
-	public Boolean isPrivate = false;
-	
-    @OneToMany(mappedBy="project", cascade=CascadeType.ALL)
-	public List<Ticket> issues;
+    @Constraints.Required
+    public Account owner;
 
-	public Date createdAt;		
-	public Date updatedAt;	
+    //	@Constraints.Required
+    //	public Project parent;
+
+    public String title;
+
+    public String description;
+
+    public Boolean isPrivate = false;
+
+    //@OneToMany(mappedBy="project", cascade=CascadeType.ALL)
+    //public List<Ticket> tickets;
+
+    @Formats.DateTime(pattern="MMM dd,yyyy")
+    public Date createdAt;
     
+    @Formats.DateTime(pattern="MMM dd,yyyy")
+    public Date updatedAt;
+
     /**
      * Generic query helper for entity Computer with id Long
      */
@@ -64,7 +62,8 @@ public class Project extends Model {
      * @param order Sort order (either or "asc" or "desc")
      * @param filter Filter applied on the name column
      */
-    public static Page<Project> page(int page, int pageSize, String sortBy, String order, String filter) {
+    /*
+    public static com.avaje.ebean.Page<Project> page(int page, int pageSize, String sortBy, String order, String filter) {
         return find.where()
                 .ilike("name", "%" + filter + "%")
                 .orderBy(sortBy + " " + order)
@@ -72,5 +71,5 @@ public class Project extends Model {
                 .findPagingList(pageSize)
                 .setFetchAhead(false)
                 .getPage(page);
-    }
+    }*/
 }

@@ -1,0 +1,32 @@
+@(projects: List[models.Project])
+
+
+@main("Home") {
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="page-header">Projects<a href="#" class="btn btn-success btn-sm pull-right">New</a></h2>
+        </div>
+    </div>
+    
+    @for(project <- projects) {
+    <!-- Project panel -->
+    <div class="row">
+        <div class="panel">
+            <div class="panel-body">
+                <h2>@project.title</h2>
+                <br />
+                <p class="muted">@project.description</p>
+            </div>
+            <div class="panel-footer">
+                <div class="pull-right">
+                    <a href="#" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
+                    <a href="#" class="btn btn-default btn-xs"><i class="fa fa-archive"></i></a>
+                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-remove"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    }
+}

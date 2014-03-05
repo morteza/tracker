@@ -11,13 +11,14 @@ package models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Id;
-import javax.validation.Constraint;
 
 import play.db.ebean.Model;
 import play.data.validation.*;
 
+@Entity
 public class Ticket extends Model {
 
 	private static final long serialVersionUID = 1L;

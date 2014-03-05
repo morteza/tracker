@@ -1,7 +1,7 @@
 @*
-    @css and @js can be used just like moreScripts and moreStyles. They are optional.
+    @styles and @scripts can be used just like moreScripts and moreStyles. They are optional.
 *@
-@(title: String = "", css: Html = Html(""), js: Html = Html(""))(content: Html)
+@(title: String = "", styles: Html = Html(""), scripts: Html = Html(""))(content: Html)
 
 @import play.i18n._
 @import tags._
@@ -12,18 +12,21 @@
         <title>@Messages.get("application.name") | @title</title>
         
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("img/favicon.png")">
-        
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/common.css")">
+
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/bootstrap.min.css")">        
-        @css
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/main.css")">
+        @styles
     </head>
     <body>
-        @header()
-        @sidebar()
-	    <section class="content">@content</section>
+        <div class="container">
+          @header()
+          @sidebar()
+          @content
+        </div>
 	    @footer()
+        </div> <!-- /.container -->
         <script src="@routes.Assets.at("js/jquery.min.js")" type="text/javascript"></script>
         <script src="@routes.Assets.at("js/bootstrap.min.js")" type="text/javascript"></script>
-        @js
+        @scripts
     </body>
 </html>

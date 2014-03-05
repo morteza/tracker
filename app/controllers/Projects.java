@@ -7,6 +7,8 @@
  *******************************************************************************/
 package controllers;
 
+import java.util.List;
+
 import models.Project;
 import play.data.Form;
 import play.mvc.*;
@@ -27,7 +29,9 @@ public class Projects extends Controller {
      * @param filter Filter applied on computer names
      */
     public static Result list(int page, String sortBy, String order, String filter) {
-        return TODO;
+        //TODO find based on passed arguments!
+        List<Project> projects = Project.find.all();
+        return ok(views.html.projects.index.render(projects));
     }
 
     /**
