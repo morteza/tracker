@@ -27,7 +27,7 @@ public class Project extends Model {
     @Id
     public Long id;
 
-    @Constraints.Required
+    //@Constraints.Required
     public Account owner;
 
     //	@Constraints.Required
@@ -39,8 +39,8 @@ public class Project extends Model {
 
     public Boolean isPrivate = false;
 
-    //@OneToMany(mappedBy="project", cascade=CascadeType.ALL)
-    //public List<Ticket> tickets;
+    @OneToMany(mappedBy="project", cascade=CascadeType.ALL)
+    public List<Ticket> tickets;
 
     @Formats.DateTime(pattern="MMM dd,yyyy")
     public Date createdAt;

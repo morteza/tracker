@@ -10,6 +10,8 @@ package controllers;
 import java.util.List;
 
 import models.Project;
+import models.Ticket;
+import models.TicketState;
 import play.data.Form;
 import play.mvc.*;
 
@@ -18,7 +20,7 @@ public class Projects extends Controller {
 	Form<Project> projectForm = Form.form(Project.class);
 	
     public static Result index() {
-    	return list(0, "name", "asc", "");
+    	return list(0, "title", "asc", "");
     }
     
     /**
@@ -43,13 +45,17 @@ public class Projects extends Controller {
     	return TODO;
     }
 
-
-    public static Result create() {
-    	return TODO;
-    }
-
     public static Result save() {
-    	return TODO;
+        Form<Project> projectForm = Form.form(Project.class).bindFromRequest();
+        if(projectForm.hasErrors()) {
+            return badRequest();
+        }
+        
+        Project project = projectForm.get();
+        project.save();
+        
+        //FIXME redirect to index()
+        return redirect("/");
     }
 
     public static Result update(Long id) {
@@ -61,9 +67,25 @@ public class Projects extends Controller {
     }
     
     public static Result delete(Long id) {
-    	return TODO;
+        Project project = Project.find.byId(id);
+        project.delete();
+        //FIXME redirect to index()
+    	return redirect("/");
     }
 
+    public static Result dashboard(Long id) {
+        Project project = Project.find.byId(id);
+        
+        //FIXME fetch tickets that belongs to the passed id argument
+        List<Ticket> proposals = Ticket.find.where().eq("state", TicketState.PROPOSAL).findList();
+        List<Ticket> todos = Ticket.find.where().eq("state", TicketState.TODO).findList();
+        List<Ticket> workings = Ticket.find.where().eq("state", TicketState.WORKING).findList();
+        List<Ticket> dones = Ticket.find.where().eq("state", TicketState.DONE).findList();
+        
+        return ok(views.html.projects.dashboard.render(project, proposals, todos, workings, dones));
+    }
+    
+    
     /**
      * Manage project milestones
      * @param project

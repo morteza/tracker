@@ -7,17 +7,36 @@
  *******************************************************************************/
 package controllers;
 
-import models.Account;
-import models.Comment;
-import models.Ticket;
 import models.Project;
+import models.Ticket;
+import models.TicketState;
+import play.data.Form;
 import play.mvc.*;
 
-public class Issues extends Controller {
+public class Tickets extends Controller {
 
 	
     public static Result index() {
         return TODO;
+    }
+    
+    public static Result save(Long projectId) {
+        
+        Form<Ticket> ticketForm = Form.form(Ticket.class).bindFromRequest();
+        if(ticketForm.hasErrors()) {
+            return badRequest();
+        }
+                
+        Project project = Project.find.byId(projectId);
+        
+        Ticket ticket = ticketForm.get();
+        ticket.project = project;
+        ticket.save();
+        
+        project.save();
+        
+        //FIXME redirect to index()
+        return redirect("/"+projectId);
     }
     
     
@@ -39,22 +58,25 @@ public class Issues extends Controller {
     	return TODO;
     }
 
-    /**
-     * Open (or reopen) an issue.
-     * @param issue
-     * @return
-     */
-    public static Result open(Long id) {
-    	return TODO;
+    public static Result move(Long ticketId) {
+        Ticket ticket = Ticket.find.byId(ticketId);
+        
+        int newValueIndex = (ticket.state.ordinal()+1)%TicketState.values().length;
+        
+        ticket.state = TicketState.values()[newValueIndex];
+        ticket.save();
+        
+    	return redirect("/"+ticket.project.id);
     }
 
-    /**
-     * Close an issue.
-     * @param issue
-     * @return
-     */
-    public static Result close(Long id) {
-    	return TODO;
+    public static Result delete(Long id) {
+        Ticket ticket = Ticket.find.byId(id);
+        Long projectId = ticket.project.id;
+        
+        ticket.delete();
+        
+        //FIXME redirect to index()
+        return redirect("/" + projectId);
     }
 
     /**

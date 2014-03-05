@@ -19,6 +19,10 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
   font-family: 'Open Sans';
 }
 
+.container {
+      padding-bottom: 40px;
+}
+
 footer {
   padding-left: 15px;
   padding-right: 15px;
@@ -62,16 +66,24 @@ img.navbar-brand {
   padding-top: 0px;
   padding-right: 0px;
 }
+/*
+.navbar-nav.nav > li > a {
+  border: 0px;
+}
 
 .navbar-nav.nav > li.active > a {
   background-color: #ffffff;
-  border-bottom: 3px solid rgba(0,0,0,0.75);
+  border-top: 3px solid rgba(0,0,0,0.75);
   font-weight:bold;
 }
-
+*/
 /* Turn off spinner on number inputs (Safari, ...) */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
+}
+
+.modal input {
+    margin-bottom: 5px;
 }

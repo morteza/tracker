@@ -27,18 +27,19 @@ public class Ticket extends Model {
 	public Long id;
 
 	@Constraints.Required
-	public String title;		
+	public String title;	
 	public String description;
 
-	@Constraints.Required
+	//@Constraints.Required
 	public Account creator;
+	
 	public Account assignee;
 	
 	@Constraints.Required
-	public TicketType type;
+	public TicketState state = TicketState.PROPOSAL;
 	
 	//TODO temporary. Use status instead!
-	@Constraints.Required
+	//@Constraints.Required
 	public Boolean closed = false;
 	
 	public List<Tag> tags;
@@ -47,15 +48,21 @@ public class Ticket extends Model {
 	
 	public Milestone milestone;
 	
-	@Constraints.Required
+	//@Constraints.Required
 	public Date createdAt;
 	public Date closedAt;
 	public Date updatedAt;
 	
-	@Constraints.Required
+	//FIXME @Constraints.Required
 	@ManyToOne
 	public Project project;
 	
+	/**
+	 * Generic query helper for entity Computer with id Long
+	 */
+	public static Finder<Long, Ticket> find = new Finder<Long, Ticket>(Long.class, Ticket.class); 
+
+	    
 	public void close() {
 		this.closedAt = new Date();
 		this.closed = true;

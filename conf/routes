@@ -2,16 +2,18 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                           controllers.Application.index()
-
 # Projects controller routes
-GET     /projects                  controllers.Projects.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
-GET     /projects/new              controllers.Projects.create()
-POST    /projects                  controllers.Projects.save()
-GET     /projects/:id              controllers.Projects.edit(id:Long)
-POST    /projects/:id              controllers.Projects.update(id:Long)
-POST    /projects/:id/delete       controllers.Projects.delete(id:Long)
+GET     /                 controllers.Projects.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+POST    /new              controllers.Projects.save()
+GET     /:id/delete       controllers.Projects.delete(id:Long)
+GET     /:id              controllers.Projects.dashboard(id:Long)
+
+POST    /:id              controllers.Projects.update(id:Long)
+
+# Tickets controller routes
+POST    /:projectId/new   controllers.Tickets.save(projectId:Long)
+GET     /move/:ticketId   controllers.Tickets.move(ticketId:Long)
+GET     /delete/:id       controllers.Tickets.delete(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file     controllers.Assets.at(path="/public", file)

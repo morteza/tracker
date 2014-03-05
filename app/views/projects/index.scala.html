@@ -1,32 +1,55 @@
 @(projects: List[models.Project])
 
 
-@main("Home") {
+@main("Projects") {
     
     <div class="row">
         <div class="col-md-12">
-            <h2 class="page-header">Projects<a href="#" class="btn btn-success btn-sm pull-right">New</a></h2>
+            <h2 class="page-header">Projects
+                <a href="#" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#newProjectModal">New</a>
+            </h2>
         </div>
     </div>
     
     @for(project <- projects) {
     <!-- Project panel -->
     <div class="row">
-        <div class="panel">
+        <div class="panel panel-default">
             <div class="panel-body">
-                <h2>@project.title</h2>
-                <br />
-                <p class="muted">@project.description</p>
+                <h4><a href="@routes.Projects.dashboard(project.id)">@project.title</a></h4>
+                <p class="text-muted">@project.description</p>
             </div>
             <div class="panel-footer">
-                <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
-                    <a href="#" class="btn btn-default btn-xs"><i class="fa fa-archive"></i></a>
-                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-remove"></i></a>
+                <div class="">
+                    <a href="#" class="btn btn-default btn-sm"><i class="fa fa-pencil"></i></a>
+                    <a href="#" class="btn btn-default btn-sm"><i class="fa fa-archive"></i></a>
+                    <a href="@routes.Projects.delete(project.id)" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
                 </div>
             </div>
         </div>
     </div>
     <br />
     }
+
+<!-- Modal -->
+<form action="@routes.Projects.save()" method="POST" role="form">
+<div class="modal fade" id="newProjectModal" tabindex="-1" role="dialog" aria-labelledby="newProjectLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="newProjectLabel">New Project</h4>
+      </div>
+      <div class="modal-body">
+        <input name="title" type="text" class="form-control" placeholder="Project Name" />
+        <textarea name="description" class="form-control" placeholder="Description"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
 }
