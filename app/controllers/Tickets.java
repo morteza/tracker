@@ -63,10 +63,33 @@ public class Tickets extends Controller {
         
         int newValueIndex = (ticket.state.ordinal()+1)%TicketState.values().length;
         
+        /**
+         * Don't move back straight from done to proposal!
+         */
+        if (newValueIndex == 0)
+            newValueIndex = TicketState.values().length - 1;
+
         ticket.state = TicketState.values()[newValueIndex];
         ticket.save();
         
     	return redirect("/"+ticket.project.id);
+    }
+
+    public static Result back(Long ticketId) {
+        Ticket ticket = Ticket.find.byId(ticketId);
+        
+        int newValueIndex = (ticket.state.ordinal()-1)%TicketState.values().length;
+        
+        /**
+         * Don't move to done from proposal state!
+         */
+        if (newValueIndex<0)
+            newValueIndex = 0;
+        
+        ticket.state = TicketState.values()[newValueIndex];
+        ticket.save();
+        
+        return redirect("/"+ticket.project.id);
     }
 
     public static Result delete(Long id) {

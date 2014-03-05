@@ -13,6 +13,8 @@ POST    /:id              controllers.Projects.update(id:Long)
 # Tickets controller routes
 POST    /:projectId/new   controllers.Tickets.save(projectId:Long)
 GET     /move/:ticketId   controllers.Tickets.move(ticketId:Long)
+GET     /back/:ticketId   controllers.Tickets.back(ticketId:Long)
+GET     /edit/:ticketId   controllers.Tickets.edit(ticketId:Long)
 GET     /delete/:id       controllers.Tickets.delete(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
