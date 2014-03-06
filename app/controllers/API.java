@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import play.libs.Json;
 import play.mvc.*;
 
+@Security.Authenticated(Secured.class)
 public class API extends Controller {
 
     public static Result index() {

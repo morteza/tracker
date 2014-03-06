@@ -16,7 +16,7 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-body">
-                <h4><a href="@routes.Projects.dashboard(project.id)">@project.title</a></h4>
+                <h4><a href="@routes.Projects.board(project.id)">@project.title</a></h4>
                 <p class="text-muted">@project.description</p>
             </div>
             <div class="panel-footer">
@@ -32,7 +32,7 @@
     }
 
 <!-- Modal -->
-<form action="@routes.Projects.save()" method="POST" role="form">
+<form action="@routes.Projects.save()" method="POST" role="form" enctype="multipart/form-data">
 <div class="modal fade" id="newProjectModal" tabindex="-1" role="dialog" aria-labelledby="newProjectLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -43,6 +43,7 @@
       <div class="modal-body">
         <input name="title" type="text" class="form-control" placeholder="Project Name" />
         <textarea name="description" class="form-control" placeholder="Description"></textarea>
+        <input name="avatarFile" type="file" class="form-control" placeholder="Avatar">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -82,13 +82,17 @@ public class Account extends Model {
 	}
 	
 	public static Account authenticate(String email, String password) {
+	    try {
 		Account account = find.fetch("byEmail", email).findUnique();
 		if (account!=null) {
 			if (account.hashedPassword.equals(play.libs.Crypto.encryptAES(password))) {
 				return account;
 			}
 		}
-		return null;
+	    } catch (Exception e) {
+	        return null;
+	    }
+            return null;
 	}
     
 	public static Finder<Long,Account> find = new Finder<Long, Account>(Long.class, Account.class);

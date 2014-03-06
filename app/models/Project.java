@@ -47,6 +47,8 @@ public class Project extends Model {
     
     @Formats.DateTime(pattern="MMM dd,yyyy")
     public Date updatedAt;
+    
+    public String avatarUrl;
 
     /**
      * Generic query helper for entity Computer with id Long

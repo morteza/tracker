@@ -87,3 +87,32 @@ input[type=number]::-webkit-outer-spin-button {
 .modal input {
     margin-bottom: 5px;
 }
+
+.col-header h2 {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  background: #ddd;
+  float: left;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+  position: relative;
+  max-height: 1em;
+}
+
+.col-header h2::after{
+  content: "";
+  position: absolute;
+  top: 50%; 
+  margin-top: -0.5em;   
+  border-top: 0.5em solid transparent;
+  border-bottom: 0.5em solid transparent;
+  border-left: 1em solid #ddd;
+  right: -1em;
+  margin-bottom: 10px;
+}
+
+.col-header hr {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}

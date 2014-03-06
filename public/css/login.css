@@ -1,11 +1,11 @@
 html{
   height:100%;
-  background: #ffffff url('../img/cover.jpg') no-repeat top center fixed;
+  /*background: #ffffff url('../img/cover.jpg') no-repeat top center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-  font-family: 'Open Sans', 'Iranian Sans';
+  background-size: cover;*/
+  font-family: 'Open Sans';
 }
 
 body {
@@ -38,11 +38,13 @@ body {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-.form-signin input[type="email"]::-webkit-input-placeholder { direction:rtl; text-align: right; }
-.form-signin input[type="email"]::-moz-placeholder { direction:rtl; text-align: right; } /* firefox 19+ */
-:-ms-input-placeholder { direction:rtl; text-align: right; } /* ie */
-.form-signin input[type="email"]:-moz-placeholder { direction:rtl; text-align: right; }
 
+/* This is just for RTL
+.form-signin input[type="email"]::-webkit-input-placeholder { direction:rtl; text-align: right; }
+.form-signin input[type="email"]::-moz-placeholder { direction:rtl; text-align: right; }
+:-ms-input-placeholder { direction:rtl; text-align: right; }
+.form-signin input[type="email"]:-moz-placeholder { direction:rtl; text-align: right; }
+*/
 
 .form-signin input[type="password"] {
   direction: ltr;
@@ -51,8 +53,9 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
+/* This is just for RTL
 .form-signin input[type="password"]::-webkit-input-placeholder { direction:rtl; text-align: right; }
-.form-signin input[type="password"]::-moz-placeholder { direction:rtl; text-align: right; } /* firefox 19+ */
-:-ms-input-placeholder { direction:rtl; text-align: right; } /* ie */
+.form-signin input[type="password"]::-moz-placeholder { direction:rtl; text-align: right; }
+:-ms-input-placeholder { direction:rtl; text-align: right; }
 .form-signin input[type="password"]:-moz-placeholder { direction:rtl; text-align: right; }
+*/

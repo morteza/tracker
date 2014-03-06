@@ -2,11 +2,16 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+# Authentication
+GET     /login            controllers.Accounts.login()
+POST    /login            controllers.Accounts.authenticate()
+GET     /logout           controllers.Accounts.logout()
+
 # Projects controller routes
 GET     /                 controllers.Projects.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
 POST    /new              controllers.Projects.save()
 GET     /:id/delete       controllers.Projects.delete(id:Long)
-GET     /:id              controllers.Projects.dashboard(id:Long)
+GET     /:id              controllers.Projects.board(id:Long)
 
 POST    /:id              controllers.Projects.update(id:Long)
 

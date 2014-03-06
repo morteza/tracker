@@ -21,27 +21,28 @@
         </div>
     </div>
 
-
     <div class="row">
         <div class="col-md-3">
           <!-- column header -->
-          <div class="row">
-            <h2 class="text-center">Proposed</h2>
+          <div class="row col-header">
+            <h3 class="text-center">Proposed</h3>
             <hr />
           </div>        
+
           <div class="row">
             <div class="col-md-12">
                 <a href="#" class="btn btn-primary btn-block btn-lg" data-toggle="modal" data-target="#newTicketModal">
                     <i class="fa fa-plus"></i> New Ticket
                 </a>
-                <hr />
+                <br />
             </div>
           </div>
+
           @for(p <- proposals) {
           <!-- Tickets column -->
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
+              <div class="panel panel-default panel-ticket">
                   <div class="panel-body">
                       <h4>@p.title</h4>
                       <p class="text-muted">@p.description</p>
@@ -61,16 +62,16 @@
         
         <div class="col-md-3">
           <!-- column header -->
-          <div class="row">
-            <h2 class="text-center">To Do</h2>
+          <div class="row col-header">
+            <h3 class="text-center">To Do</h3>
             <hr />
-          </div>        
+          </div>  <!-- /.col-header -->      
 
           @for(p <- todos) {
           <!-- Tickets column -->
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
+              <div class="panel panel-default panel-ticket">
                   <div class="panel-body">
                       <h4>@p.title</h4>
                       <p class="text-muted">@p.description</p>
@@ -91,15 +92,15 @@
         
         <div class="col-md-3">
           <!-- column header -->
-          <div class="row">
-            <h2 class="text-center">In Progress</h2>
+          <div class="row col-header">
+            <h3 class="text-center">In Progress</h3>
             <hr />
           </div>        
 
           @for(p <- workings) {
           <!-- Tickets column -->
           <div class="row">
-              <div class="panel panel-default">
+              <div class="panel panel-default panel-ticket">
                   <div class="panel-body">
                       <h4>@p.title</h4>
                       <p class="text-muted">@p.description</p>
@@ -108,7 +109,7 @@
                       <div class="text-right">
                           <a href="@routes.Tickets.edit(p.id)" class="btn btn-default btn-xs pull-left"><i class="fa fa-pencil"></i></a>
                           <a href="@routes.Tickets.back(p.id)" class="btn btn-danger btn-xs"><i class="fa fa-arrow-left"></i></a>
-                          <a href="@routes.Tickets.move(p.id)" class="btn btn-success btn-xs"><i class="fa fa-arrow-right"></i></a>
+                          <a href="@routes.Tickets.move(p.id)" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
                       </div>
                   </div>
               </div>
@@ -118,8 +119,8 @@
         
         <div class="col-md-3">
           <!-- column header -->
-          <div class="row">
-            <h2 class="text-center">Done</h2>
+          <div class="row col-header">
+            <h3 class="text-center">Done</h3>
             <hr />
           </div>        
 
@@ -127,7 +128,7 @@
           <!-- Tickets column -->
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
+              <div class="panel panel-default panel-ticket">
                   <div class="panel-body">
                       <h4>@p.title</h4>
                       <p class="text-muted">@p.description</p>

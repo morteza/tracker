@@ -13,6 +13,7 @@ import models.TicketState;
 import play.data.Form;
 import play.mvc.*;
 
+@Security.Authenticated(Secured.class)
 public class Tickets extends Controller {
 
 	
