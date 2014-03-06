@@ -29,7 +29,9 @@ else
 		exit 1
 	fi
 
+	rm -rf $PLAY_PATH
 	unzip "$PLAY_ARCH"
+	mv ${OPENSHIFT_DATA_DIR}play-2.2.1/ $PLAY_PATH
 	rm $PLAY_ARCH
 fi
 
