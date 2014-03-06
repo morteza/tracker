@@ -14,6 +14,7 @@ fi
 LOG_FILE="${OPENSHIFT_DIY_LOG_DIR}play.log"
 
 #chmod +x ${OPENSHIFT_REPO_DIR}target/start
+cd ${OPENSHIFT_REPO_DIR}
 
 ${OPENSHIFT_DATA_DIR}play/play clean compile stage
 
