@@ -83,13 +83,14 @@ public class Account extends Model {
 	
 	public static Account authenticate(String email, String password) {
 	    try {
-		Account account = find.fetch("byEmail", email).findUnique();
+		Account account = find.where("email = :e").setParameter("e", email).findUnique();
 		if (account!=null) {
-			if (account.hashedPassword.equals(play.libs.Crypto.encryptAES(password))) {
-				return account;
-			}
+		    if (account.hashedPassword.equals(play.libs.Crypto.encryptAES(password))) {
+			return account;
+		    }
 		}
 	    } catch (Exception e) {
+	        e.printStackTrace();
 	        return null;
 	    }
             return null;

@@ -41,7 +41,7 @@ public class Accounts extends Controller {
     
     public static Result authenticate(){
         String username = request().body().asFormUrlEncoded().get("username")[0];
-        String password = request().getQueryString("password");
+        String password = request().body().asFormUrlEncoded().get("password")[0];
         
         boolean authenticated = false;
         

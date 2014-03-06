@@ -8,6 +8,8 @@
 
 import java.lang.reflect.Method;
 
+import models.Account;
+import models.AccountRole;
 import play.*;
 import play.mvc.*;
 import play.mvc.Http.Request;
@@ -16,7 +18,16 @@ public class Global extends GlobalSettings {
 	
 	@Override
 	public void onStart(Application app) {
-		Logger.info("$ratnic.tracker.title$ is starting...");
+	    if(Account.all().size()==0){
+	        Account admin = new Account();
+	        admin.email="admin@local";
+	        admin.fullname="Administrator";
+	        admin.hashedPassword = play.libs.Crypto.encryptAES("hello123");
+	        admin.role= AccountRole.ADMIN;
+	        admin.isConfirmed=true;
+	        admin.save();
+	    }
+	    Logger.info("$ratnic.tracker.title$ is starting...");
 	}
 	
 	@Override
