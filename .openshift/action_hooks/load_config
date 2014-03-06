@@ -11,7 +11,7 @@ PLAY_ARCH="${OPENSHIFT_DATA_DIR}play.zip"
 cd "$OPENSHIFT_DATA_DIR"
 
 if [[ -d $PLAY_PATH ]]; then
-	echo "Play 2.2.1 already installed at `pwd`/$PLAY_PATH"
+	echo "Play 2.2.1 already installed at /$PLAY_PATH"
 else
 
 	echo "Installing play 2.2.1"
