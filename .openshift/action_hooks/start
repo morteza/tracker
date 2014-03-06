@@ -15,6 +15,8 @@ LOG_FILE="${OPENSHIFT_DIY_LOG_DIR}play.log"
 
 chmod +x ${OPENSHIFT_REPO_DIR}target/start
 
+${OPENSHIFT_DATA_DIR}/play-2.2.1/play clean compile stage
+
 APP_COMMAND="${OPENSHIFT_REPO_DIR}target/start $PLAY_PARAMS "\
 "-Dhttp.port=${OPENSHIFT_DIY_PORT} "\
 "-Dhttp.address=${OPENSHIFT_DIY_IP} "\

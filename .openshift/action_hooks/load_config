@@ -3,10 +3,34 @@
 # debug
 # set -x
 
-# check needed vars
-if [[ -z $OPENSHIFT_REPO_DIR ]]; then
-	echo "Error: OPENSHIFT_REPO_DIR not defined"
-	return 1
+PLAY_PATH="${OPENSHIFT_DATA_DIR}play/"
+
+# use tmp file just in case it hangs up
+PLAY_ARCH="${OPENSHIFT_DATA_DIR}play.zip"
+
+cd "$OPENSHIFT_DATA_DIR"
+
+if [[ -d $PLAY_PATH ]]; then
+	echo "Play 2.2.1 already installed at `pwd`/$PLAY_PATH"
+else
+
+	echo "Installing play 2.2.1"
+
+	if [[ -f $PLAY_ARCH ]]; then
+		rm $PLAY_ARCH
+	fi
+
+	PLAY_URL="http://downloads.typesafe.com/play/2.2.1/play-2.2.1.zip"
+
+	curl -o $PLAY_ARCH $PLAY_URL
+
+	if [[ ! -f $PLAY_ARCH ]]; then
+		echo "Error downloading play 2.2.1 from $PLAY_URL"
+		exit 1
+	fi
+
+	unzip "$PLAY_ARCH"
+	rm $PLAY_ARCH
 fi
 
 PLAY_PARAMS=""
