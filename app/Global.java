@@ -15,10 +15,11 @@ import play.mvc.*;
 import play.mvc.Http.Request;
 
 public class Global extends GlobalSettings {
-	
+    
 	@Override
 	public void onStart(Application app) {
-	    if(Account.all().size()==0){
+            super.onStart(app);
+	    if(Account.find.all().size()==0){
 	        Account admin = new Account();
 	        admin.email="admin@local";
 	        admin.fullname="Administrator";
@@ -35,7 +36,7 @@ public class Global extends GlobalSettings {
 		Logger.info("$ratnic.tracker.title$ is stopping...");
 	}
 
-	@Override
+    @Override
     @SuppressWarnings("rawtypes")
     public Action onRequest(Request request, Method actionMethod) {
         System.out.println("Processing request to \"" + request.uri() + "\"...");
