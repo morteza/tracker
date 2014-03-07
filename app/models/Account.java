@@ -12,6 +12,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.Constraint;
 
@@ -21,6 +22,7 @@ import play.data.format.*;
 
 
 @Entity
+@Table(name="account")
 public class Account extends Model {
 	
 	// Groups
