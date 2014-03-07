@@ -22,8 +22,8 @@ public class Activity extends Model {
 	@Id
 	public Long id;
 	
-	@Constraints.Required
-	public Account account;
+//	@Constraints.Required
+//	public Account account;
 	
 	@Constraints.Required
 	public ActivityType type;

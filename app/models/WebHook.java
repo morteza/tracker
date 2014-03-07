@@ -19,8 +19,8 @@ public class WebHook extends Model {
 	@Id
 	public Long id;
 
-	@Constraints.Required
-	public Account account;
+//	@Constraints.Required
+//	public Account account;
 	
 	@Constraints.Required
 	public Project project;
