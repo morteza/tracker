@@ -7,16 +7,12 @@
  *******************************************************************************/
 package controllers;
 
-import play.Logger;
-import play.mvc.*;
-import play.data.*;
-import static play.data.Form.*;
-import models.*;
+import models.Account;
+import play.mvc.Controller;
+import play.mvc.Result;
 
 public class Accounts extends Controller {
-    
-    final static Form<Account> signupForm = form(Account.class, Account.SIGNUP_FORM.class);
-  
+      
     public static Result blank() {
         return TODO;
     }
