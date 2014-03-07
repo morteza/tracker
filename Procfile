@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/ratnic-tracker -Dhttp.port=${PORT} -DapplyEvolutions.default=true -Ddb.default.driver=org.postgresql.Driver -Ddb.default.url="jdbc:postgresql://ec2-54-225-101-60.compute-1.amazonaws.com:5432/daei65eaido2u6" -Ddb.default.user=opzuxvyrfqwsfo -Ddb.default.password="2Cvl1k1AZFYgACr1y9XreF5bCt"
+web: target/universal/stage/bin/ratnic-tracker -Dhttp.port=${PORT} -DapplyEvolutions.default=true -Ddb.default.driver=org.postgresql.Driver -Ddb.default.url=${HEROKU_POSTGRESQL_BROWN_URL}
