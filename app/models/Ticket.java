@@ -31,7 +31,7 @@ public class Ticket extends Model {
 	public String description;
 
 	//@Constraints.Required
-	public Account creator;
+//	public Account creator;
 	
 	public Account assignee;
 	
@@ -42,9 +42,9 @@ public class Ticket extends Model {
 	//@Constraints.Required
 	public Boolean closed = false;
 	
-	public List<Tag> tags;
+	//public List<Tag> tags;
 
-	public List<Comment> comments;
+	//public List<Comment> comments;
 	
 	public Milestone milestone;
 	
@@ -70,17 +70,4 @@ public class Ticket extends Model {
 		this.save();
 	}
 	
-	public int getNumOfComments() {
-		return (comments==null)?0:comments.size();
-	}
-	
-	public void addTag(Tag tag) {
-		this.tags.add(tag);
-		this.save();
-	}
-
-	public void addComment(Comment comment) {
-		this.comments.add(comment);
-		this.save();
-	}
 }

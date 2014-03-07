@@ -9,6 +9,7 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Id;
 
@@ -27,7 +28,7 @@ public class Group extends Model {
 	public String name;
 	
 	@Constraints.Required
-	public Account account;
+	public Account owner;
 	
 	@ManyToMany
 	public List<Account> members;

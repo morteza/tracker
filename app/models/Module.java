@@ -36,6 +36,5 @@ public class Module extends Model {
 	public Date modifiedAt;
 	
 	@Constraints.Required
-	@ManyToOne
 	public Project project;	
 }
