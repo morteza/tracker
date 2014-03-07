@@ -26,8 +26,6 @@ import play.data.format.*;
 public class Account extends Model {
 	
 	// Groups
-	public interface ALL {}
-	public interface SIGNUP_FORM {}
 	
 	private static final long serialVersionUID = 1L;
 
@@ -35,23 +33,23 @@ public class Account extends Model {
 	public Long id;
 	
 	
-	@Constraints.Required(groups={SIGNUP_FORM.class, ALL.class})
+	@Constraints.Required
 	public String fullname;
 	
 	/**
 	 * Email address, rather than username, is used for authentication/authorization/etc.
 	 */
-	@Constraints.Required(groups={SIGNUP_FORM.class, ALL.class})
+	@Constraints.Required
 	@Constraints.Email
 	public String email;
 	
 	/** Encrypted using play.libs.Crypto.encryptAES. */
 	//TODO: @Password
-	@Constraints.Required(groups={SIGNUP_FORM.class, ALL.class})
+	@Constraints.Required
 	public String hashedPassword;
 	
 	//TODO: @Unique
-	@Constraints.Required(groups={SIGNUP_FORM.class, ALL.class})
+	@Constraints.Required
 	public String username;
 
 	public AccountRole role = AccountRole.GUEST;
