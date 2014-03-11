@@ -28,7 +28,7 @@ public class Global extends GlobalSettings {
 	        admin.isConfirmed=true;
 	        admin.save();
 	    }
-	    Logger.info("$ratnic.tracker.title$ is starting...");
+	    Logger.info("$ratnic.tracker.title$ is starting... (Accounts: "+ Account.find.all().size() + ")");
 	}
 	
 	@Override
