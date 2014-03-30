@@ -19,8 +19,6 @@ import play.mvc.*;
 
 @Security.Authenticated(Secured.class)
 public class Projects extends Controller {
-
-    Form<Project> projectForm = Form.form(Project.class);
 	
     public static Result index() {
     	return redirect(routes.Projects.list(0, "title", "asc", ""));

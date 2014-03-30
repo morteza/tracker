@@ -20,10 +20,7 @@ public class Global extends GlobalSettings {
 	public void onStart(Application app) {
             super.onStart(app);
 	    if(Account.find.all().size()==0){
-	        Account admin = new Account();
-	        admin.email="admin@local";
-	        admin.fullname="Administrator";
-	        admin.hashedPassword = play.libs.Crypto.encryptAES("hello123");
+	        Account admin = new Account("Administrator", "admin@local", "hello123");
 	        admin.role= AccountRole.ADMIN;
 	        admin.isConfirmed=true;
 	        admin.save();

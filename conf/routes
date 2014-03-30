@@ -7,12 +7,19 @@ GET     /login            controllers.Accounts.login()
 POST    /login            controllers.Accounts.authenticate()
 GET     /logout           controllers.Accounts.logout()
 
+# Accounts controller routes
+GET     /accounts                  controllers.Accounts.list(p:Int ?= 0, s ?= "fullname", o ?= "asc", f ?= "")
+POST    /accounts/new              controllers.Accounts.save()
+GET     /accounts/:id/delete       controllers.Accounts.delete(id:Long)
+GET     /accounts/:id              controllers.Accounts.show(id:Long)
+POST    /accounts/:id              controllers.Accounts.update(id:Long)
+GET     /accounts/:id/confirm      controllers.Accounts.confirm(id:Long)
+
 # Projects controller routes
 GET     /                 controllers.Projects.list(p:Int ?= 0, s ?= "title", o ?= "asc", f ?= "")
 POST    /new              controllers.Projects.save()
 GET     /:id/delete       controllers.Projects.delete(id:Long)
 GET     /:id              controllers.Projects.board(id:Long)
-
 POST    /:id              controllers.Projects.update(id:Long)
 
 # Tickets controller routes

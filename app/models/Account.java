@@ -13,8 +13,6 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.validation.Constraint;
 
 import play.db.ebean.Model;
 import play.data.validation.*;
@@ -45,11 +43,11 @@ public class Account extends Model {
 	
 	/** Encrypted using play.libs.Crypto.encryptAES. */
 	//TODO: @Password
-	@Constraints.Required
+	//@Constraints.Required
 	public String hashedPassword;
 	
 	//TODO: @Unique
-	@Constraints.Required
+	//@Constraints.Required
 	public String username;
 
 	public AccountRole role = AccountRole.GUEST;
@@ -61,12 +59,21 @@ public class Account extends Model {
 	//TODO: @URL
 	public String homepage;
 	
-	public Date registeredAt;
+	public Date createdAt;
 	public Date updatedAt;
 	public Date lastLoginAt;
 	
 	// Path to the profile image
-	public String image;
+	public String avatarUrl;
+	
+	
+	public Account() {}
+	
+	public Account(String fullname, String email, String password) {
+		this.fullname = fullname;
+		this.email = email;
+		this.hashedPassword = play.libs.Crypto.encryptAES(password);
+	}
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -98,13 +105,8 @@ public class Account extends Model {
     
 	public static Finder<Long,Account> find = new Finder<Long, Account>(Long.class, Account.class);
 	
-	// CRUD operations
 	public static List<Account> all() {
 		return find.all();
-	}
-
-	public static void create(Account account) {
-		account.save();
 	}
 
 	public static void delete(Long id) {

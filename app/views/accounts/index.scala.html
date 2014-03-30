@@ -1,0 +1,62 @@
+@(accounts: List[models.Account])
+
+
+@main("Accounts") {
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="page-header">Accounts
+                <a href="#" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#newAccountModal">New</a>
+            </h2>
+        </div>
+    </div>
+    
+    <div class="row">
+    @for(account <- accounts) {
+    <!-- Account Panel -->
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p>
+            <strong>@account.fullname</strong> <br />
+            @account.email
+          </p>
+        </div>
+        <div class="panel-footer">
+          <div class="text-right">
+          @if(!account.isConfirmed) {
+            <a href="@routes.Accounts.confirm(account.id)" class="btn btn-default btn-xs pull-left"><i class="fa fa-check"></i></a>          
+          }
+            <a href="@routes.Accounts.delete(account.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+            <a href="@routes.Accounts.update(account.id)" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+    </div>
+    
+<!-- Modal -->
+<form action="@routes.Accounts.save()" method="POST" role="form" enctype="multipart/form-data">
+<div class="modal fade" id="newAccountModal" tabindex="-1" role="dialog" aria-labelledby="newAccountLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="newProjectLabel">New Account</h4>
+      </div>
+      <div class="modal-body">
+        <input name="fullname" type="text" class="form-control" placeholder="Full Name" />
+        <input name="email" type="text" class="form-control" placeholder="Email" />
+        <input name="password" type="text" class="form-control" placeholder="Password" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+}
