@@ -6,13 +6,9 @@ name := "ratnic.tracker"
 
 version := "2.0-SNAPSHOT"
 
-libraryDependencies ++= Seq(
-  javaJdbc,
-  javaEbean,
-  cache
-)
+libraryDependencies ++= Seq(javaJdbc, javaEbean, cache)
 
 //postgres driver
-libraryDependencies += "postgresql" % "postgresql" % "9.1-901-1.jdbc4"   
+//libraryDependencies += "postgresql" % "postgresql" % "9.1-901-1.jdbc4"   
 
 playJavaSettings

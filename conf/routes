@@ -8,7 +8,7 @@ POST    /login            controllers.Accounts.authenticate()
 GET     /logout           controllers.Accounts.logout()
 
 # Projects controller routes
-GET     /                 controllers.Projects.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+GET     /                 controllers.Projects.list(p:Int ?= 0, s ?= "title", o ?= "asc", f ?= "")
 POST    /new              controllers.Projects.save()
 GET     /:id/delete       controllers.Projects.delete(id:Long)
 GET     /:id              controllers.Projects.board(id:Long)

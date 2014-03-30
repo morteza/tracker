@@ -18,6 +18,7 @@ import javax.persistence.Id;
 import play.db.ebean.Model;
 import play.data.validation.*;
 import play.data.format.*;
+import play.i18n.Messages;
 
 @Entity
 public class Project extends Model {
@@ -33,9 +34,10 @@ public class Project extends Model {
     //	@Constraints.Required
     //	public Project parent;
 
+    @Constraints.Required
     public String title;
 
-    public String description;
+    public String description = Messages.get("ratnic.tracker.not_available");
 
     public Boolean isPrivate = false;
 
