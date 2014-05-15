@@ -1,22 +1,17 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.*;
-
-import play.mvc.*;
-import play.test.*;
-import play.data.DynamicForm;
-import play.data.validation.ValidationError;
-import play.data.validation.Constraints.RequiredValidator;
-import play.i18n.Lang;
-import play.libs.F;
-import play.libs.F.*;
+/*******************************************************************************
+ *        File: Global.java
+ *      Author: Morteza Ansarinia <morteza@ratnic.se>
+ *  Created on: Feb 22, 2014
+ *     Project: ratnic.tracker
+ *   Copyright: See the file "LICENSE" for the full license governing this code.
+ *******************************************************************************/
 
 import static play.test.Helpers.*;
 import static org.fest.assertions.Assertions.*;
+
+import org.junit.Test;
+
+import play.mvc.Content;
 
 
 /**
