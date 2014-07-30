@@ -3,7 +3,7 @@
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Mar 6, 2015
  *     Version: 2.0
- *     Project: ratnic.tracker
+ *     Project: tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 

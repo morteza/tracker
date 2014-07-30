@@ -2,7 +2,7 @@
  *        File: Projects.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Feb 22, 2014
- *     Project: ratnic.tracker
+ *     Project: tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 package controllers;

@@ -6,7 +6,7 @@ users:
     - !!models.User
         email:      ansarinia@me.com
         name:       Morteza Ansarinia
-        password:   secret123
+        password:   hello123
 
 # Projects
 
@@ -14,7 +14,7 @@ projects:
 
     - !!models.Project
         id:         1
-        name:       Play 2.2
+        name:       Play 2.3
         folder:     Play framework
         members:
             - !!models.User

@@ -1,14 +1,13 @@
-import play.Project._
+name := "tracker"
 
-// organization := "ratnic"
+version := "2.1.0-SNAPSHOT"
 
-name := "ratnic.tracker"
+scalaVersion := "2.11.1"
 
-version := "2.0-SNAPSHOT"
-
-libraryDependencies ++= Seq(javaJdbc, javaEbean, cache)
+libraryDependencies ++= Seq(javaJdbc, javaEbean, cache, javaWs)
 
 //postgres driver
 //libraryDependencies += "postgresql" % "postgresql" % "9.1-901-1.jdbc4"   
 
-playJavaSettings
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
+

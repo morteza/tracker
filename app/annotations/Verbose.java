@@ -2,7 +2,7 @@
  *        File: Verbose.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Feb 26, 2014
- *     Project: ratnic.tracker
+ *     Project: tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 package annotations;
@@ -14,7 +14,7 @@ import play.mvc.With;
 
 
 /**
- * User this annotations like this:
+ * User this annotation like this:
  * <code>
  *	@Verbose(false)
  *	public static Result index() {

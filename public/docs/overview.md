@@ -1,7 +1,7 @@
-# Ratnic Tracker.
+# Tracker.
 ## Developer Manual
 
-In the following sections, the architecture behind Ratnic Tracker is described. In the first part, the whole data model is described, although event-driven software was in mind, and these models have been extracted after defining events, requests, actions, and responses.
+In the following sections, the architecture behind *Tracker* is described. In the first part, the whole data model is described, although event-driven software was in mind, and these models have been extracted after defining events, requests, actions, and responses.
 
 ### Anatomy
 

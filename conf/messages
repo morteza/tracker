@@ -1,3 +1,3 @@
-application.name=Ratnic Tracker
+application.name=Tracker
 
-ratnic.tracker.not_available=N/A
+tracker.not_available=N/A

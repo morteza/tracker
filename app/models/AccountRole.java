@@ -1,8 +1,8 @@
 /*******************************************************************************
  *        File: AccountRole.java
- *      Author: Morteza Ansarinia <morteza@ratnic.se>
+ *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Feb 26, 2014
- *     Project: ratnic.tracker
+ *     Project: tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 package models;

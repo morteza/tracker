@@ -1,8 +1,8 @@
 /*******************************************************************************
  *        File: Global.java
- *      Author: Morteza Ansarinia <morteza@ratnic.se>
+ *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Feb 22, 2014
- *     Project: ratnic.tracker
+ *     Project: tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 
@@ -25,12 +25,12 @@ public class Global extends GlobalSettings {
 	        admin.isConfirmed=true;
 	        admin.save();
 	    }
-	    Logger.info("$ratnic.tracker.title$ is starting... (Accounts: "+ Account.find.all().size() + ")");
+	    Logger.info("$tracker.title$ is starting... (Accounts: "+ Account.find.all().size() + ")");
 	}
 	
 	@Override
 	public void onStop(Application app) {
-		Logger.info("$ratnic.tracker.title$ is stopping...");
+		Logger.info("$tracker.title$ is stopping...");
 	}
 
     @Override

@@ -1,8 +1,8 @@
 /*******************************************************************************
  *        File: Global.java
- *      Author: Morteza Ansarinia <morteza@ratnic.se>
+ *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Feb 22, 2014
- *     Project: ratnic.tracker
+ *     Project: tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 
@@ -11,6 +11,7 @@ import static org.fest.assertions.Assertions.*;
 
 import org.junit.Test;
 
+import play.i18n.Messages;
 import play.mvc.Content;
 
 
@@ -30,9 +31,9 @@ public class ApplicationTest {
 
     @Test
     public void renderTemplate() {
-        Content html = views.html.index.render("Your new application is ready.");
+        Content html = views.html.index.render(Messages.get("application.name"));
         assertThat(contentType(html)).isEqualTo("text/html");
-        assertThat(contentAsString(html)).contains("Your new application is ready.");
+        assertThat(contentAsString(html)).contains(Messages.get("application.name"));
     }
 
 

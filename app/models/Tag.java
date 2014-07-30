@@ -2,7 +2,7 @@
  *        File: Tag.java
  *      Author: Morteza Ansarinia <ansarinia@me.com>
  *  Created on: Feb 7, 2013
- *     Project: ratnic.tracker
+ *     Project: tracker
  *   Copyright: See the file "LICENSE" for the full license governing this code.
  *******************************************************************************/
 
